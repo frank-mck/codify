@@ -1,4 +1,6 @@
-# productivity-app-ts
+# Codify
+
+A productivity app that helps users organise their tasks to become more effcient(Codify your tasks). A user can sign up, create, update and delete tasks and log in, log out
 
 ## User Stories
 ```
@@ -28,6 +30,3 @@ I want to sign out
 ```
 More advanced user stories coming...
 
-## Task
-
-Create a productivity app that helps users organise their tasks to become more effcient. A user can sign up, create, update and delete tasks and log in, log out.
