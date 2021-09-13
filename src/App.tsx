@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+import './styles/App.css';
+import { AddTask } from './components/AddTask';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      Heelo from react
+      <h1 data-testid='title'>Efficiency</h1>
+      <AddTask />
     </div>
   );
 }
