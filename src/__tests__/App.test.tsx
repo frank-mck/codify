@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import "@testing-library/jest-dom/extend-expect"
 import App from '../App';
-const { queryAllByText } = render(<App />);
-
 
 test('renders title', () => {
-  render(<App />);
-  expect(screen.getByTestId('title')).toHaveTextContent('Efficiency');
+  const app = render(<App />);
+  const title = app.getByTestId("title");
+  expect(title.textContent).toBe('Efficiency');
 });
