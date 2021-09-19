@@ -6,6 +6,7 @@ export const AddTask: React.FC = () => {
 
   const handleChange: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+
     Axios.post('http://localhost:3002/v2/api/tasks', { tasks: task})
     setTask('')
   }

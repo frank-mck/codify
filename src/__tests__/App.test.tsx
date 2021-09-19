@@ -6,5 +6,5 @@ import App from '../App';
 test('renders title', () => {
   const app = render(<App />);
   const title = app.getByTestId("title");
-  expect(title.textContent).toBe('Efficiency');
+  expect(title.textContent).toBe('Codify');
 });

@@ -25,9 +25,13 @@ app.post('/v2/api/tasks', async (req, res) => {
   }
 })
 
-app.get('/v2/api/tasks', async (req, res) => {
-  const data = await Task.findAll(res.params.task)
-  send.json(data)
+app.get('/tasks', async (req, res) => {
+  const data = await Task.find({}, (err, result) => {
+    if (err) {
+      res.send(err)
+    }
+    res.send(result)
+  })
 })
 
 
