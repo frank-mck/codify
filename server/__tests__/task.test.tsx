@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 describe('Task', () => {
-  let connection;
+  let connection: any;
+  let db: { createCollection: (arg0: string) => any; dropCollection: (arg0: string) => any; dropDatabase: () => any; close: () => any; };
 
   beforeAll(async () => {
    connection = await mongoose.connect(process.env.TEST_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true  });
