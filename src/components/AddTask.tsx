@@ -1,10 +1,10 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import Axios from 'axios';
 
-interface TaskProps {
-  setAddTasks: Dispatch<SetStateAction<[] | ArrayConstructor[]>>
-  addTasks: ArrayConstructor[] | Array<string>
-}
+// interface TaskProps {
+//   setAddTasks: Dispatch<SetStateAction<[] | ArrayConstructor[]>>
+//   addTasks: ArrayConstructor[] | Array<string>
+// }
 
 export const AddTask: React.FC<any> = ({ setAddTasks, addTasks }) => {
   const [tasks, setTasks] = React.useState<string>('');

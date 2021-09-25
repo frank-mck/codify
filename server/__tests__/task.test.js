@@ -1,31 +1,28 @@
 const Task = require('../models/Task');
 const mongoose = require('mongoose');
-const dataBase = 'codify-test';
-const Axios = require('Axios');
+require('dotenv').config();
 
 describe('Task', () => {
-  beforeAll(async () => {
-    const url = `mongodb://127.0.0.1/${dataBase}`
-    await mongoose.connect(url, { useNewUrlParser: true })
-  })
+  let connection;
 
-  afterEach(async () => {
-    await Task.deleteMany()
+  beforeAll(async () => {
+   connection = await mongoose.connect(process.env.TEST_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true  });
+   db = mongoose.connection;
+   const collection = process.env.COLLECTION;
+   await db.createCollection(collection);
   })
 
   afterAll(async () => {
-    // Removes the Task collection
-    await Task.drop() 
+    const collection = process.env.COLLECTION;
+    await db.dropCollection(collection);
+    await db.dropDatabase();
+    await db.close();
   })
 
-  test('Show tasks', async (done) => {
-    const res = await Axios.post('http://127.0.0.1/v2/api/tasks', async () => {
-      const task = new Task({ task: "Take out the trash" })
-      const result = await Task.findOne({ task: "Take out the trash" })
-    })
+  test('Add task POST', async () => {
+    const res = await Task.create({ task: "take out the trash" });
+    await res.save();
     
-    expect(res.body.task).toBeTruthy()
-    done();
+    expect(res.task).toBe("take out the trash");
   })
-
 })

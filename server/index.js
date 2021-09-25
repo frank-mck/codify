@@ -6,13 +6,14 @@ const Task = require('./models/Task');
 const app = express();
 const cors = require('cors');
 
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(cors())
 
 const PORT = process.env.PORT || 3002
 
 mongoose.connect(process.env.DATABASE, {
-  useNewUrlParser: true
+  useNewUrlParser: true, useUnifiedTopology: true
 });
 
 app.post('/v2/api/tasks', async (req, res) => {
@@ -21,12 +22,12 @@ app.post('/v2/api/tasks', async (req, res) => {
   try {
     await task.save();
   } catch(err) {
-    console.log(err)
+    res.send(err)
   }
 })
 
 app.get('/tasks', async (req, res) => {
-  const data = await Task.find({}, (err, result) => {
+  await Task.find({}, (err, result) => {
     if (err) {
       res.send(err)
     }
