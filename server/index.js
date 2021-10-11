@@ -16,7 +16,7 @@ mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true, useUnifiedTopology: true
 });
 
-app.post('/v2/api/tasks', async (req, res) => {
+app.post('/api/v1/tasks/new', async (req, res) => {
   const taskText = req.body.tasks;
   const task = new Task({task: taskText})
   try {
@@ -26,7 +26,7 @@ app.post('/v2/api/tasks', async (req, res) => {
   }
 })
 
-app.get('/tasks', async (req, res) => {
+app.get('/api/v1/tasks', async (req, res) => {
   await Task.find({}, (err, result) => {
     if (err) {
       res.send(err)

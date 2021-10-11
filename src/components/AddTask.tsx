@@ -1,18 +1,18 @@
 import React from 'react';
-import Axios from 'axios';
+import TaskDataService from '../services/task';
 
-// interface TaskProps {
-//   setAddTasks: Dispatch<SetStateAction<[] | ArrayConstructor[]>>
-//   addTasks: ArrayConstructor[] | Array<string>
-// }
+interface TaskProps {
+  setAddTasks: any
+  addTasks: ArrayConstructor[] | Array<string>
+}
 
-export const AddTask: React.FC<any> = ({ setAddTasks, addTasks }) => {
+export const AddTask: React.FC<TaskProps> = ({ setAddTasks, addTasks }) => {
   const [tasks, setTasks] = React.useState<string>('');
 
   const handleChange: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     setAddTasks([...addTasks, tasks])
-    Axios.post('http://localhost:3002/v2/api/tasks', { tasks: tasks})
+    TaskDataService.createTask({ tasks: tasks})
     setTasks('')
   }
 
