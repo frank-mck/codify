@@ -1,10 +1,10 @@
-const Task = require('../models/Task');
+const Tasks = require('../models/Task');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
 describe('Task', () => {
-  let connection: any;
-  let db: { createCollection: (arg0: string) => any; dropCollection: (arg0: string) => any; dropDatabase: () => any; close: () => any; };
+  let connection;
+  let db;
 
   beforeAll(async () => {
    connection = await mongoose.connect(process.env.TEST_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true  });
@@ -21,7 +21,7 @@ describe('Task', () => {
   })
 
   test('Add task POST', async () => {
-    const res = await Task.create({ task: "take out the trash" });
+    const res = await Tasks.create({ task: "take out the trash" });
     await res.save();
     
     expect(res.task).toBe("take out the trash");

@@ -1,12 +1,12 @@
 const express = require('express');
-const Tasks = require('../models/Task.js');
+const Task = require('../models/Task.js');
 
 const router = express.Router();
 
 router.route('/').get( async (req, res) => {
-  await Tasks.find({}, (err, result) => {
+  await Task.find((err, result) => {
     if (err) {
-      res.send(err)
+      res.send()
     }
     res.send(result)
   })
@@ -14,13 +14,28 @@ router.route('/').get( async (req, res) => {
 
 router.route('/new').post( async (req, res) => {
   const taskText = req.body.tasks;
-  const task = new Tasks({task: taskText})
+  const task = new Task({task: taskText})
   try {
     await task.save();
   } catch(err) {
     res.send(err)
   }
 });
+
+router.route('/:id').get((req, res) => {
+  Task.findById(req.params.id, (err, task) => {
+    res.json(task)
+  })
+})
+
+router.route('/:id').delete( async (req, res) => {
+  const deleteTask = await Task.findByIdAndDelete(req.params.id);
+  try {
+    deleteTask.delete();
+  } catch(error) {
+    console.log(error)
+  }
+})
 
 
 module.exports = router
