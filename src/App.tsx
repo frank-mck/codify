@@ -1,26 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles/App.css';
 import { AddTask } from './components/AddTask';
-import taskDataService from './services/task';
+import TaskDataService from './services/task';
 
 const App: React.FC = () => {
   const [addTasks, setAddTasks] = React.useState<any>([]);
 
   const deleteTask = (id: any) => {
-    taskDataService.deleteTask(id);
+    TaskDataService.deleteTask(id);
     const data = addTasks.filter((n: any) => n._id !== id);
     setAddTasks([...data])
   }
 
+  const editTask = (id: any) => {
+    TaskDataService.getById(id);
+  }
+
   return (
     <div className="App">
-      <h1 data-testid='title'>Codify</h1>
+      <header><h1 data-testid='title'>Codify</h1></header>
       <AddTask setAddTasks={setAddTasks} />
-      {addTasks.map((task: any, key: any) => {
-        return <li key={key}>{task.task || task} <button type ='reset' onClick={() => deleteTask(task._id || task)}>Delete</button></li>
+      {addTasks.reverse().map((task: any, key: any) => {
+        return <li key={key}>
+          {task.task} <button onClick={() => deleteTask(task._id)}>Delete</button> <button onClick={() => editTask(task._id)}>O</button></li>
       })}
     </div>
   );
-}
+} 
 
 export default App;

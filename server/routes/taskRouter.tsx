@@ -3,13 +3,14 @@ const Task = require('../models/Task.js');
 
 const router = express.Router();
 
-router.route('/').get( async (req, res) => {
-  await Task.find((err, result) => {
-    if (err) {
-      res.send()
+router.route('/').get(async (req, res) => {
+  await Task.find({}, (err, result) => {
+    try { 
+      res.send(result)
+    } catch {
+      res.send(err)
     }
-    res.send(result)
-  })
+  }).clone().catch(function(err){ console.log(err)})
 });
 
 router.route('/new').post( async (req, res) => {
@@ -24,11 +25,11 @@ router.route('/new').post( async (req, res) => {
 
 router.route('/:id').get((req, res) => {
   Task.findById(req.params.id, (err, task) => {
-    res.json(task)
+    res.send(task)
   })
 })
 
-router.route('/:id').delete( async (req, res) => {
+router.route('/:id').delete(async (req, res) => {
   const deleteTask = await Task.findByIdAndDelete(req.params.id);
   try {
     deleteTask.delete();

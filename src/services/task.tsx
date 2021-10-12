@@ -6,12 +6,13 @@ class TaskDataService {
     return response;
   }
 
-  createTask(data: object) {
+  createTask(data: any) {
     return http.post('/new', data);
   }
 
-  deleteTask(id: string | undefined) {
-    return http.delete(`/${id}`)
+  async deleteTask(id: string) {
+    const res = await http.delete(`/${id}`)
+    return res.data.json()
   }
 
   getById(id :string) {
