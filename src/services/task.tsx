@@ -11,8 +11,7 @@ class TaskDataService {
   }
 
   async deleteTask(id: string) {
-    const res = await http.delete(`/${id}`)
-    return res.data.json()
+    await http.delete(`/${id}`)
   }
 
   getById(id :string) {

@@ -18,6 +18,7 @@ router.route('/new').post( async (req, res) => {
   const task = new Task({task: taskText})
   try {
     await task.save();
+    res.end();
   } catch(err) {
     res.send(err)
   }
@@ -33,6 +34,7 @@ router.route('/:id').delete(async (req, res) => {
   const deleteTask = await Task.findByIdAndDelete(req.params.id);
   try {
     deleteTask.delete();
+    res.end();
   } catch(error) {
     console.log(error)
   }
