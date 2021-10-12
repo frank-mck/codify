@@ -3,17 +3,27 @@ import TaskDataService from '../services/task';
 
 interface TaskProps {
   setAddTasks: any
-  addTasks: ArrayConstructor[] | Array<string>
 }
 
-export const AddTask: React.FC<TaskProps> = ({ setAddTasks, addTasks }) => {
+export const AddTask: React.FC<TaskProps> = ({ setAddTasks }) => {
   const [tasks, setTasks] = React.useState<string>('');
+
+  const getAllTasks = async () => {
+    return await TaskDataService.getAll()
+    .then(res => res.data)
+    .catch(error => console.log(error))
+  }
+
+  React.useEffect(() => {
+    getAllTasks().then(res => setAddTasks(res))
+  }, [setAddTasks]);
+
 
   const handleChange: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    setAddTasks([...addTasks, tasks])
-    TaskDataService.createTask({ tasks: tasks})
-    setTasks('')
+    TaskDataService.createTask({ tasks: tasks});
+    getAllTasks().then(res => setAddTasks(res));
+    setTasks('');
   }
 
   return (
@@ -24,6 +34,7 @@ export const AddTask: React.FC<TaskProps> = ({ setAddTasks, addTasks }) => {
         </input>
         <button type ='submit' value ='Add'>Add</button>
       </form>
+      
     </div>
   )
 }
