@@ -6,21 +6,21 @@ const router = express.Router();
 router.route('/').get(async (req, res) => {
   await Task.find({}, (err, result) => {
     try { 
-      res.send(result)
+      res.send(result.reverse())
     } catch {
-      res.send(err)
+      console.log(err)
     }
-  }).clone().catch(function(err){ console.log(err)})
+  }).clone()
 });
 
-router.route('/new').post( async (req, res) => {
+router.route('/new').post(async (req, res) => {
   const taskText = req.body.tasks;
   const task = new Task({task: taskText})
   try {
     await task.save();
     res.end();
   } catch(err) {
-    res.send(err)
+    console.log(err)
   }
 });
 

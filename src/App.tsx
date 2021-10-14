@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './styles/App.css';
 import { AddTask } from './components/AddTask';
 import TaskDataService from './services/task';
@@ -20,9 +20,9 @@ const App: React.FC = () => {
     <div className="App">
       <header><h1 data-testid='title'>Codify</h1></header>
       <AddTask setAddTasks={setAddTasks} />
-      {addTasks.reverse().map((task: any, key: any) => {
-        return <li key={key}>
-          {task.task} <button onClick={() => deleteTask(task._id)}>Delete</button> <button onClick={() => editTask(task._id)}>O</button></li>
+      {addTasks.map((task: any, key: any) => {
+        return <p key={key}>
+          {task.task} <button onClick={() => deleteTask(task._id)}>Delete</button> <button onClick={() => editTask(task._id)}>O</button></p>
       })}
     </div>
   );
