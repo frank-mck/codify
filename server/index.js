@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(cors(3002))
 
-app.use('/api/v1/tasks', tasks);
+app.use('/api/v1', tasks);
 
 app.listen(PORT, () => {
   console.log(`listening on server ${PORT}`)

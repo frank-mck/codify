@@ -1,44 +1,15 @@
 const express = require('express');
 const Task = require('../models/Task.js');
-
+const TaskController = require('../controllers/TaskController');
 const router = express.Router();
+const TaskCtrl = TaskController;
 
-router.route('/').get(async (req, res) => {
-  await Task.find({}, (err, result) => {
-    try { 
-      res.send(result.reverse())
-    } catch {
-      console.log(err)
-    }
-  }).clone()
-});
+router.route('/tasks').get(TaskCtrl.apiGetTasks);
 
-router.route('/new').post(async (req, res) => {
-  const taskText = req.body.tasks;
-  const task = new Task({task: taskText})
-  try {
-    await task.save();
-    res.end();
-  } catch(err) {
-    console.log(err)
-  }
-});
+router.route('/tasks/new').post(TaskCtrl.apiPostTask);
 
-router.route('/:id').get((req, res) => {
-  Task.findById(req.params.id, (err, task) => {
-    res.send(task)
-  })
-})
+router.route('/tasks/:id').get(TaskCtrl.apiFindTask);
 
-router.route('/:id').delete(async (req, res) => {
-  const deleteTask = await Task.findByIdAndDelete(req.params.id);
-  try {
-    deleteTask.delete();
-    res.end();
-  } catch(error) {
-    console.log(error)
-  }
-})
-
+router.route('/tasks/:id').delete(TaskCtrl.apiDeleteTask);
 
 module.exports = router
