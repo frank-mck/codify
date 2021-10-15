@@ -1,4 +1,4 @@
-import http from '../http';
+import http from './http';
 
 class TaskDataService {
   async getAll() {
@@ -6,16 +6,16 @@ class TaskDataService {
     return response;
   }
 
-  createTask(data: any) {
-    return http.post('/new', data);
+  async createTask(data: any) {
+    await http.post('/new', data);
   }
 
   async deleteTask(id: string) {
     await http.delete(`/${id}`)
   }
 
-  getById(id :string) {
-    return http.get(`/${id}`)
+  async getById(id :string) {
+    await http.get(`/${id}`)
   }
 }
 

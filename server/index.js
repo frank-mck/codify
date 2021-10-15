@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/User');
-require('dotenv').config();
 const app = express();
 const cors = require('cors');
-const tasks = require('./routes/taskRouter.tsx');
+const tasks = require('./routes/tasksRouter.tsx');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3002
 
