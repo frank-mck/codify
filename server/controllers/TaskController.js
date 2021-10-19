@@ -4,7 +4,7 @@ TaskController = {
   apiGetTasks: async (req, res) => {
     const result = await Task.find({})
       try { 
-        res.send(result.reverse())
+        res.send(result)
       } catch(err) {
         console.log(err)
       }
@@ -12,7 +12,7 @@ TaskController = {
 
   apiPostTask: async (req, res) => {
     const taskText = req.body.tasks;
-    const task = await new Task({task: taskText})
+    const task = await new Task({task: taskText, edit: false})
     try {
       await task.save();
       res.end();
@@ -29,6 +29,19 @@ TaskController = {
     } catch(error) {
       console.log(error)
     }
+  },
+
+  apiEditTask: async (req, res) => {
+      const editTask = await Task.findOneAndUpdate({_id: req.params.id}, {
+        task: req.body.task
+      });
+
+      try {
+       
+        res.send(editTask);
+      } catch(err) {
+        console.log(err)
+      }
   },
 
   apiFindTask: async (req, res) => {

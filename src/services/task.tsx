@@ -14,6 +14,11 @@ class TaskDataService {
     await http.delete(`/${id}`)
   }
 
+  async updateTask(id: string, data: any) {
+    const response = await http.put(`/edit/${id}`, data);
+    return response;
+  }
+
   async getById(id :string) {
     await http.get(`/${id}`)
   }

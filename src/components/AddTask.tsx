@@ -5,13 +5,12 @@ export const AddTask: React.FC<any> = ({ setAddTasks }) => {
   const [task, setTask] = React.useState<string>('');
 
   const getAllTasks = async () => {
-    return await TaskDataService.getAll()
+    return await TaskDataService.getAll();
   }
 
   React.useEffect(() => {
     getAllTasks().then(res => setAddTasks(res.data)).catch(error => console.log(error));
   }, [setAddTasks]);
-
 
   const addTask: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();

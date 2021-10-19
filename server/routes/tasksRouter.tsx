@@ -8,8 +8,10 @@ router.route('/tasks').get(TaskCtrl.apiGetTasks);
 
 router.route('/tasks/new').post(TaskCtrl.apiPostTask);
 
-router.route('/tasks/:id').get(TaskCtrl.apiFindTask);
+router.route('/tasks/edit/:id').put(TaskCtrl.apiEditTask)
 
 router.route('/tasks/:id').delete(TaskCtrl.apiDeleteTask);
+
+router.route('/tasks/:id').get(TaskCtrl.apiFindTask);
 
 module.exports = router

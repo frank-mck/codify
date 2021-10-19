@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './styles/App.css';
 import { AddTask } from './components/AddTask';
 import TaskDataService from './services/task';
 
 const App: React.FC = () => {
-  const [addTasks, setAddTasks] = React.useState<any>([]);
+  const [addTasks, setAddTasks] = useState<any>([]);
+  const [edit, setEdit] = useState<any>('');
+  const [edited, setEdited] = useState('')
+  const [addId, setAddId] = useState('');
 
   const deleteTask = (id: any) => {
     TaskDataService.deleteTask(id);
@@ -12,8 +15,21 @@ const App: React.FC = () => {
     setAddTasks([...data])
   }
 
-  const editTask = (id: any) => {
-    TaskDataService.getById(id);
+  const editTask = async (data: any) => {
+    const update = await TaskDataService.updateTask(addId, data);
+    const getAll = await TaskDataService.getAll().then(res => setAddTasks(res.data))
+    setEdit(false)
+    Promise.all([update, getAll])
+  }
+
+  const formHandler = (e: any) => {
+    e.preventDefault();
+    setAddTasks([...addTasks])
+  }
+
+  const toggleEdit = (id: any, task: any) => {
+    setEdit(id)
+    setAddId(id)
   }
 
   return (
@@ -21,9 +37,18 @@ const App: React.FC = () => {
       <header><h1 data-testid='title'>Codify</h1></header>
       <AddTask setAddTasks={setAddTasks} />
       {addTasks.map((task: any, key: any) => {
-        return <p key={key}>
-          {task.task} <button onClick={() => deleteTask(task._id)}>Delete</button> <button onClick={() => editTask(task._id)}>O</button></p>
+         {if (edit == task._id) {
+          return <form onSubmit={formHandler}>
+          <input type='text' placeholder={task.task} onChange={(e) => setEdited(e.target.value)}></input>
+          <button type='submit' onClickCapture={() => editTask({task: edited})}>Update</button>
+        </form>
+         } else {
+           return <div key={key} id={task._id} className='task' style={{display: 'flex'}}><p>{task.task}</p> <button onClick={() => deleteTask(task._id)}>Del</button> <button onClick={() => toggleEdit(task._id, task)} >Edit</button></div>
+         } } 
       })}
+
+      
+      
     </div>
   );
 } 
