@@ -35,9 +35,7 @@ TaskController = {
       const editTask = await Task.findOneAndUpdate({_id: req.params.id}, {
         task: req.body.task
       });
-
       try {
-       
         res.send(editTask);
       } catch(err) {
         console.log(err)
