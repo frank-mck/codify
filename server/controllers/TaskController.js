@@ -11,7 +11,7 @@ TaskController = {
   },
 
   apiPostTask: async (req, res) => {
-    const taskText = req.body.tasks;
+    const taskText = req.body.task;
     const task = await new Task({task: taskText, edit: false})
     try {
       await task.save();

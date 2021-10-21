@@ -10,7 +10,7 @@ interface keyValuePair {
 export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
   const [update, setUpdate] = useState<keyValuePair>({_id: '', task: ''});
 
-  const editTask = async (task: object) => {
+  const editTask = async (task: {task: string}) => {
     const updated = await TaskDataService.updateTask(update._id, task);
     const getAll = await TaskDataService.getAll().then(res => setAddTasks(res.data));
     Promise.all([updated, getAll])

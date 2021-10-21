@@ -6,7 +6,7 @@ class TaskDataService {
     return response;
   }
 
-  async createTask(data: any) {
+  async createTask(data: { task: string }) {
     await http.post('/new', data);
   }
 
@@ -14,7 +14,7 @@ class TaskDataService {
     await http.delete(`/${id}`)
   }
 
-  async updateTask(id: string, data: any) {
+  async updateTask(id: string, data: { task: string }) {
     const response = await http.put(`/edit/${id}`, data);
     return response;
   }

@@ -8,8 +8,8 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId }) => 
     task: string,
   }
 
-  const deleteTask = () => {
-    TaskDataService.deleteTask(taskId);
+  const deleteTask = async () => {
+    await TaskDataService.deleteTask(taskId);
     const data = addTasks.filter((task: keyValuePair) => task._id !== taskId);
     setAddTasks([...data])
   }

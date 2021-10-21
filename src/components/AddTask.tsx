@@ -14,8 +14,8 @@ export const AddTask: React.FC<any> = ({ setAddTasks }) => {
 
   const addTask: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    const createTask = await TaskDataService.createTask({ tasks: task });  
-    const getTasks = await getAllTasks().then(res => setAddTasks(res.data));
+    const createTask = await TaskDataService.createTask({ task: task });  
+    const getTasks = getAllTasks().then(res => setAddTasks(res.data));
     Promise.all([createTask, getTasks]);
     setTask('');
   }
