@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const User = require('./models/User');
 const app = express();
 const cors = require('cors');
 const tasks = require('./routes/tasksRouter.tsx');
