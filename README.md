@@ -2,7 +2,7 @@
 
 A productivity app that helps users organise their tasks to become more efficient(Codify your tasks). A user can sign up, create, update and delete tasks and log in, log out.
 
-Click (here)[https://hardcore-sinoussi-7b5156.netlify.app/] to see what i have built so far?(Styles coming soon)  
+Click [here](https://hardcore-sinoussi-7b5156.netlify.app/) to see what i have built so far?(Styles coming soon)  
 
 ## User Stories
 ```
