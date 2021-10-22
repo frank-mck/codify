@@ -14,7 +14,7 @@ mongoose.connect(process.env.DATABASE, {
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
-app.use(cors(3002))
+app.use(cors())
 
 app.use('/api/v1', tasks);
 
