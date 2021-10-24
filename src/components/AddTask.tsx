@@ -22,14 +22,15 @@ export const AddTask: React.FC<any> = ({ setAddTasks }) => {
 
   return (
     <div>
-      <form className="task-form" onSubmit={addTask}>
+      <form data-testid='add-task-form' className="task-form" onSubmit={addTask}>
         <input 
+          data-testid='task-form-input'
           required type='text'
           name ='task' placeholder='Enter a task...'
           value={task} 
           onChange={(e) => setTask(e.target.value)}>
         </input>
-        <button type ='submit' value ='Add'>Add</button>
+        <button data-testid='task-form-btn' type ='submit' value ='Add'>Add</button>
       </form>
     </div>
   )

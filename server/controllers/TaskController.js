@@ -1,4 +1,4 @@
-const Task = require('../models/Task');
+const Task = require('../models/Task.js');
 
 TaskController = {
   apiGetTasks: async (req, res) => {
