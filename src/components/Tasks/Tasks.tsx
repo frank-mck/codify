@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TaskDataService from '../../services/task';
+import Button from '@mui/material/Button';
 import { DeleteTask } from '../DeleteTask';
 import './Tasks.css'
 import '../AddTask/AddTask.css'
@@ -41,12 +42,13 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
               placeholder={task.task}
               onChange={(e) => setUpdate({_id: task._id, task: e.target.value})}>
             </input>
-            <button 
-              className='task-btn'
+            <Button 
+              variant='contained'
               type='submit'
+              style={{margin: '10px', backgroundColor: 'rgb(0, 252, 201)', color: 'black'}}
               onClickCapture={() => editTask({task: update.task})}>
               Update
-            </button>
+            </Button>
           </form> )
         } else {
           return (
@@ -58,7 +60,11 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
               setAddTasks={setAddTasks} 
               taskId={task._id} 
             />
-            <button onClick={() => toggleUpdate(task._id, task.task)} className='edit-task task-btn'>Edit</button>
+            <Button
+            variant='contained'
+             onClick={() => toggleUpdate(task._id, task.task)}
+             style={{margin: '10px', backgroundColor: 'rgb(0, 252, 201)', color: 'black'}}
+              >Edit</Button>
             </div>
           </div>)
         }

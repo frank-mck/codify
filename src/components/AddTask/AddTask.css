@@ -5,16 +5,21 @@
 .App {
   text-align: center;
   color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .add-task-container {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-  height: 100px;
-  width: 400px;
+  margin-top: 2rem;
+  border: 1px solid rgb(240, 240, 240);
+  height: 80px;
+  width: 430px;
   background-color: rgb(41, 145, 122);
   border-radius: 50px;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 2px 2px 5px 0 rgba(0, 0, 0, 0.205);
 }
 
 .task-form {
@@ -29,6 +34,7 @@
   width: 220px;
   height: 40px;
   border-radius: 5px;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
 }
 
 .add-task-form-btn, .task-btn {

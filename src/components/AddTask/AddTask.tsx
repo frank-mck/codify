@@ -1,5 +1,6 @@
 import React from 'react';
 import './AddTask.css';
+import Button from '@mui/material/Button';
 import TaskDataService from '../../services/task';
 
 export const AddTask: React.FC<any> = ({ setAddTasks }) => {
@@ -32,12 +33,13 @@ export const AddTask: React.FC<any> = ({ setAddTasks }) => {
           value={task} 
           onChange={(e) => setTask(e.target.value)}>
         </input>
-        <button
+        <Button
+         variant="contained"
          data-testid='add-task-form-btn'
          type ='submit'
          value ='Add'
-         className='task-form-btn task-btn'
-         >Add</button>
+         style={{margin: '15px', backgroundColor: 'rgb(0, 252, 201)', color: 'black'}}
+         >Add</Button>
       </form>
     </div>
   )

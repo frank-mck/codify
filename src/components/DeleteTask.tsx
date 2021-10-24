@@ -1,5 +1,6 @@
-import React from 'react';
 import TaskDataService from '../services/task';
+import React from 'react';
+import Button from '@mui/material/Button';
 
 export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId }) => {
 
@@ -15,6 +16,11 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId }) => 
   }
 
   return (
-    <button className='task-btn delete-btn' onClick={() => deleteTask()}>Delete</button> 
+    <Button 
+      variant="contained" 
+      color="error" 
+      onClick={() => deleteTask()}
+      style={{margin: '10px'}}
+    >Delete</Button> 
   )
 }
