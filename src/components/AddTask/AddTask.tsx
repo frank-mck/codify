@@ -1,5 +1,6 @@
 import React from 'react';
-import TaskDataService from '../services/task';
+import './AddTask.css';
+import TaskDataService from '../../services/task';
 
 export const AddTask: React.FC<any> = ({ setAddTasks }) => {
   const [task, setTask] = React.useState<string>('');
@@ -21,16 +22,22 @@ export const AddTask: React.FC<any> = ({ setAddTasks }) => {
   }
 
   return (
-    <div>
+    <div className='add-task-container'>
       <form data-testid='add-task-form' className="task-form" onSubmit={addTask}>
-        <input 
+        <input
+          className='task-form-input'
           data-testid='task-form-input'
           required type='text'
           name ='task' placeholder='Enter a task...'
           value={task} 
           onChange={(e) => setTask(e.target.value)}>
         </input>
-        <button data-testid='task-form-btn' type ='submit' value ='Add'>Add</button>
+        <button
+         data-testid='add-task-form-btn'
+         type ='submit'
+         value ='Add'
+         className='task-form-btn task-btn'
+         >Add</button>
       </form>
     </div>
   )

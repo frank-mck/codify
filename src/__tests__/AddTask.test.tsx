@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { AddTask } from '../components/AddTask';
-import sinon from 'sinon';
+import { AddTask } from '../components/AddTask/AddTask';
 import '@testing-library/jest-dom'
 
 describe('AddTask' , () => {

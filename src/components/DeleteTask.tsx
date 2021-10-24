@@ -15,6 +15,6 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId }) => 
   }
 
   return (
-    <button onClick={() => deleteTask()}>Delete</button> 
+    <button className='task-btn delete-btn' onClick={() => deleteTask()}>Delete</button> 
   )
 }

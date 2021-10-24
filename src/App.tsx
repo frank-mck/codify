@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './styles/App.css';
-import { AddTask } from './components/AddTask';
-import { Tasks } from './components/Tasks';
+import { AddTask } from './components/AddTask/AddTask';
+import { Tasks } from './components/Tasks/Tasks';
 
 const App: React.FC = () => {
   const [addTasks, setAddTasks] = useState<any>([]);

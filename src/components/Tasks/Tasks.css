@@ -1,0 +1,44 @@
+.tasks-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.task {
+  min-width: 445px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: rgb(41, 145, 122);
+  margin: .8rem 0;
+  display: flex;
+  padding: 0 3rem;
+  justify-content: space-between;
+}
+
+.edit-task-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 445px;
+  margin: .8rem 0;
+  padding: 0 3rem;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: rgb(41, 145, 122);
+}
+
+.edit-task-input {
+  padding: 1rem;
+  border: none;
+  width: 220px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  background-color: rgb(255, 85, 85);
+}
+
+.task-buttons {
+  display: flex;
+}
