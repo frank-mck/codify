@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import TaskDataService from '../../services/task';
 import Button from '@mui/material/Button';
-import { DeleteTask } from '../DeleteTask';
+import { DeleteTask } from '../../components/DeleteTask';
 import './Tasks.css'
-import '../AddTask/AddTask.css'
+import '../../components/AddTask/AddTask.css'
 
 interface keyValuePair {
   _id: string, 
