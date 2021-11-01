@@ -5,6 +5,7 @@ import { Tasks } from './Pages/Tasks/Tasks';
 import { Nav } from './components/Nav/Nav';
 import { SignIn } from './Pages/SignIn/SignIn';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { SignUp } from './Pages/SignUp/SignUp';
 
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Nav />
         <Switch>
           <Route path ='/' exact component={SignIn} />
+          <Route path='/signup' exact component={SignUp} />
           <Route path='/tasks' exact>  
             <AddTask setAddTasks={setAddTasks} />
             <Tasks setAddTasks={setAddTasks} addTasks={addTasks} />

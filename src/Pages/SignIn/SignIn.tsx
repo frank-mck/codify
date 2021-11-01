@@ -11,6 +11,11 @@ export const SignIn = () => {
     history.push('/tasks')
   }
 
+  const signUp = (event: any) => {
+    event.preventDefault();
+    history.push('/signup');
+  }
+
   return (
     <div className ='sign-in-container'>
       <h1>Sign in</h1>
@@ -20,6 +25,7 @@ export const SignIn = () => {
         <label htmlFor='password' />Password
         <input type ='password' id ='password'></input>
         <button type='submit'>Sign in</button>
+        <button onClick={signUp}>Sign up</button>
       </form>      
     </div>
   )
