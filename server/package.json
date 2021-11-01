@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/passport-local-mongoose": "^6.1.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "jest": "^27.2.0",
