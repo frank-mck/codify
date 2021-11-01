@@ -1,10 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
 const tasks = require('./routes/tasksRouter.js');
 const auth = require('./routes/auth.js')
-require('dotenv').config();
 
 const PORT = process.env.PORT || 3002
 
@@ -21,8 +21,13 @@ app.use(cors())
 
 app.use('/api/v1', tasks);
 
-app.use('/api/auth', auth);
+app.use('/api/v1/auth', auth);
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`listening on server ${PORT}`)
+})
+
+process.on('unhandledRejection', (err, promise) => {
+  console.log(`Logged Error: ${err}`);
+  server.close(() => process.exit(1))
 })

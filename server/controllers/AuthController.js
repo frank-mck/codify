@@ -6,9 +6,10 @@ exports.signup = async (req, res, next) => {
   try {
     const user = await User.create({ 
       username, email, password
-    })
+    });
+    user.save();
   } catch (error) {
-
+    console.log(error)
   }
 }
 

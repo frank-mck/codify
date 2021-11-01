@@ -1,7 +1,7 @@
 import React from 'react';
 import './AddTask.css';
 import Button from '@mui/material/Button';
-import TaskDataService from '../../services/task';
+import TaskDataService from '../../services/TaskService';
 
 export const AddTask: React.FC<any> = ({ setAddTasks }) => {
   const [task, setTask] = React.useState<string>('');
