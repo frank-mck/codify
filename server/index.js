@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
 const tasks = require('./routes/tasksRouter.js');
-const auth = require('./routes/auth')
+const auth = require('./routes/auth.js')
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3002
@@ -21,7 +21,7 @@ app.use(cors())
 
 app.use('/api/v1', tasks);
 
-app.use('/api/auth', auth)
+app.use('/api/auth', auth);
 
 app.listen(PORT, () => {
   console.log(`listening on server ${PORT}`)
