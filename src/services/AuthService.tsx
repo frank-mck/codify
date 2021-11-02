@@ -1,13 +1,14 @@
 import auth from './auth';
+import { SignupMsg } from '../Pages/SignUp/SignupEnums'
 
 class AuthDataService {
-  async uniqueUser(user: any) {
+  async searchUser(user: any) {
     const users = await auth.get('/users');
-    const searchUser = users.data.find((person: any) => person.username === user.username || person.email === user.email);
-    if (!searchUser) {
-      return "User created successfully!"
+    const findUser = users.data.find((person: any) => person.username === user.username || person.email === user.email);
+    if (!findUser) {
+      return SignupMsg.success
     } else {
-      return "Username or email already taken!"
+      return SignupMsg.unsuccessful
     }
   }
 

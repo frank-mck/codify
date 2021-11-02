@@ -1,12 +1,12 @@
-.sign-in-container {
+.sign-in-container, .sign-up-container {
   height: calc(80vh - 60px);
-  width: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
 }
 
-.sign-in-form {
+.sign-in-form, .sign-up-form {
   display: flex;
   flex-direction: column;
 }

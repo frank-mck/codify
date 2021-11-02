@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import Auth from '../../services/AuthService'
+//import { useHistory } from 'react-router-dom';
+import Auth from '../../services/AuthService';
+import { SignupMsg } from './SignupEnums'
 
 export const SignUp = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
+  const [signupMsg, setSignupMsg] = useState('');
 
   //const history = useHistory();
+
+  const signupMsgStyles = {
+    color: signupMsg === SignupMsg.success ? 'green' : 'red',
+  }
 
   const setInput = (setter: any) => (event: any) => {
     setter(event.currentTarget.value);
@@ -18,29 +23,44 @@ export const SignUp = () => {
     await Auth.createUser({username: username, password: password, email: email})
   }
 
-  const handleSignUp = async (event: any) => {
+  const userLookup = async () => {
+    // Will return a message depending if a user already exists
+    return await Auth.searchUser({
+      username: username,
+      password: password,
+      email: email
+    });
+  }
+
+  const handleSignupMsg = async () => {
+    setSignupMsg(await userLookup());
+    await addUser();
+  }
+
+  const handleSignUpForm = async (event: any) => {
     event.preventDefault();
-    const searchUser = await Auth.uniqueUser({username: username, password: password, email: email});
-    setError(searchUser);
-    if (error === "User created successfully!") {
-      addUser()
-    }
+    await handleSignupMsg();
+    setEmail('');
+    setPassword('');
+    setUsername('');
   }
 
   return (
-    <div>
+    <div className='sign-up-container'>
       <h1>Sign Up</h1>
-      <form className='sign-in-form' onSubmit={handleSignUp}>
+      <form className='sign-up-form' onSubmit={handleSignUpForm}>
         <label htmlFor='email' />Email
         <input
           required
           type='text'
+          value={email}
           onChange={setInput(setEmail)}
           />
         <label htmlFor='username' />Username
         <input 
           required
           type ='text' 
+          value={username}
           id='username' 
           onChange={setInput(setUsername)} 
         />
@@ -50,12 +70,13 @@ export const SignUp = () => {
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
           title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
           type ='password' 
+          value={password}
           id ='password' 
           onChange={setInput(setPassword)}
          />
         <button type='submit'>Sign up</button>
       </form>   
-      <p>{error}</p>
+      <p style={signupMsgStyles}>{signupMsg}</p>
     </div>
   )
 }
