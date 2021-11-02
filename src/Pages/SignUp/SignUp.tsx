@@ -29,13 +29,26 @@ export const SignUp = () => {
       <form className='sign-in-form' onSubmit={handleSignUp}>
         <label htmlFor='email' />Email
         <input
-         type='text'
-         onChange={setInput(setEmail)}
+          required
+          type='text'
+          onChange={setInput(setEmail)}
           />
         <label htmlFor='username' />Username
-        <input type ='text' id='username' onChange={setInput(setUsername)}></input> 
+        <input 
+          required
+          type ='text' 
+          id='username' 
+          onChange={setInput(setUsername)} 
+        />
         <label htmlFor='password' />Password
-        <input type ='password' id ='password' onChange={setInput(setPassword)}></input>
+        <input
+          required 
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+          title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+          type ='password' 
+          id ='password' 
+          onChange={setInput(setPassword)}
+         />
         <button type='submit'>Sign up</button>
       </form>   
     </div>
