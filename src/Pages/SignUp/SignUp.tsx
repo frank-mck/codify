@@ -6,8 +6,9 @@ export const SignUp = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
 
-  const history = useHistory();
+  //const history = useHistory();
 
   const setInput = (setter: any) => (event: any) => {
     setter(event.currentTarget.value);
@@ -17,10 +18,13 @@ export const SignUp = () => {
     await Auth.createUser({username: username, password: password, email: email})
   }
 
-  const handleSignUp = (event: any) => {
+  const handleSignUp = async (event: any) => {
     event.preventDefault();
-    addUser();
-    history.push('/');
+    const searchUser = await Auth.uniqueUser({username: username, password: password, email: email});
+    setError(searchUser);
+    if (error === "User created successfully!") {
+      addUser()
+    }
   }
 
   return (
@@ -51,6 +55,7 @@ export const SignUp = () => {
          />
         <button type='submit'>Sign up</button>
       </form>   
+      <p>{error}</p>
     </div>
   )
 }

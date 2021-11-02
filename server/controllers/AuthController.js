@@ -1,6 +1,15 @@
 const User = require('../models/User')
 
 const AuthController = {
+  getAllUsers: async (req, res) => {
+    const users = await User.find({})
+    try {
+      res.send(users);
+    } catch(err) {
+      console.log(err)
+    }
+  },
+
   signup: async (req, res, next) => {
     const {username, email, password} = req.body;
   
@@ -8,9 +17,9 @@ const AuthController = {
       const user = await User.create({ 
         username, email, password
       });
-      user.save();
+      await user.save();
     } catch (error) {
-      res.send(error)
+      console.log(error)
     }
   },
 
