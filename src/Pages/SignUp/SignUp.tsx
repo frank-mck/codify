@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService';
 import { SignupMsg } from './SignupEnums'
 
@@ -7,9 +7,9 @@ export const SignUp = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [signupMsg, setSignupMsg] = useState('');
+  const [signupMsg, setSignupMsg] = useState<any>('');
 
-  //const history = useHistory();
+  const history = useHistory();
 
   const signupMsgStyles = {
     color: signupMsg === SignupMsg.success ? 'green' : 'red',
@@ -20,7 +20,7 @@ export const SignUp = () => {
   }
 
   const addUser = async () => {
-    await Auth.createUser({username: username, password: password, email: email})
+    await Auth.createUser({username: username, password: password, email: email});
   }
 
   const userLookup = async () => {
@@ -33,16 +33,16 @@ export const SignUp = () => {
   }
 
   const handleSignupMsg = async () => {
-    setSignupMsg(await userLookup());
-    await addUser();
+    const mesg = await userLookup();
+    setSignupMsg(mesg);
+    if (mesg === SignupMsg.success) history.push('/')
   }
 
   const handleSignUpForm = async (event: any) => {
     event.preventDefault();
-    await handleSignupMsg();
-    setEmail('');
-    setPassword('');
-    setUsername('');
+    const msgHandler = await handleSignupMsg();
+    const registerUser = await addUser();
+    Promise.all([msgHandler, registerUser]);
   }
 
   return (
@@ -52,7 +52,7 @@ export const SignUp = () => {
         <label htmlFor='email' />Email
         <input
           required
-          type='text'
+          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
           value={email}
           onChange={setInput(setEmail)}
           />
@@ -75,8 +75,9 @@ export const SignUp = () => {
           onChange={setInput(setPassword)}
          />
         <button type='submit'>Sign up</button>
+        <p style={signupMsgStyles}>{signupMsg}</p>
       </form>   
-      <p style={signupMsgStyles}>{signupMsg}</p>
+      
     </div>
   )
 }

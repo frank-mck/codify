@@ -1,7 +1,7 @@
 .sign-in-container, .sign-up-container {
   height: calc(80vh - 60px);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }

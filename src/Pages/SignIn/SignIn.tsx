@@ -26,6 +26,7 @@ export const SignIn = () => {
         <input type ='password' id ='password'></input>
         <button type='submit'>Sign in</button>
         <button onClick={signUp}>Sign up</button>
+        <p></p>
       </form>      
     </div>
   )
