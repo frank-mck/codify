@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "please add a password"],
     minlength: 6,
-    select: false, //When we query for a user we dont want to pass back the password to
+    select: false, //When we query for a user we dont want to pass back the password too
   },
   email: {
     type: String,
@@ -25,15 +25,6 @@ const userSchema = new mongoose.Schema({
   },
   resetPasswordToken: String,
   resetPasswordExpire: Date,
-});
-
-userSchema.pre("save", async function(next) {
-  if(!this.isModified('password')) {
-    next();
-  }
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-  next();
 });
 
 userSchema.methods.matchPasswords = async function(password) {
