@@ -13,7 +13,7 @@ class AuthDataService {
   }
 
   async createUser(user: any) {
-    await auth.post('/signup', user);
+    return await auth.post('/signup', user);
   }
 }
 

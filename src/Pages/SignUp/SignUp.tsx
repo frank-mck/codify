@@ -7,12 +7,12 @@ export const SignUp = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [signupMsg, setSignupMsg] = useState<any>('');
+  const [error, setError] = useState<any>('h');
 
   const history = useHistory();
 
   const signupMsgStyles = {
-    color: signupMsg === SignupMsg.success ? 'green' : 'red',
+    color: 'red',
   }
 
   const setInput = (setter: any) => (event: any) => {
@@ -20,29 +20,18 @@ export const SignUp = () => {
   }
 
   const addUser = async () => {
-    await Auth.createUser({username: username, password: password, email: email});
-  }
-
-  const userLookup = async () => {
-    // Will return a message depending if a user already exists
-    return await Auth.searchUser({
-      username: username,
-      password: password,
-      email: email
-    });
-  }
-
-  const handleSignupMsg = async () => {
-    const mesg = await userLookup();
-    setSignupMsg(mesg);
-    if (mesg === SignupMsg.success) history.push('/')
+    try {
+      const {data}: any = await Auth.createUser({username, password, email});
+      localStorage.setItem('token', data.token);
+      //history.push('/')
+    } catch(err: any) {
+      setError(err.response.data.error)
+    }
   }
 
   const handleSignUpForm = async (event: any) => {
     event.preventDefault();
-    const msgHandler = await handleSignupMsg();
-    const registerUser = await addUser();
-    Promise.all([msgHandler, registerUser]);
+    await addUser();
   }
 
   return (
@@ -75,7 +64,7 @@ export const SignUp = () => {
           onChange={setInput(setPassword)}
          />
         <button type='submit'>Sign up</button>
-        <p style={signupMsgStyles}>{signupMsg}</p>
+        <p style={signupMsgStyles}>{error}</p>
       </form>   
       
     </div>
