@@ -1,4 +1,4 @@
-import http from './http';
+import http from './httpTasks';
 
 class TaskDataService {
   async getAll() {

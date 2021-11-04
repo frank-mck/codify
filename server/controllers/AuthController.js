@@ -18,24 +18,24 @@ const AuthController = {
       });
       sendToken(user, 201, res)
     } catch (error) {
-      console.log(error)
-      res.status(404).json({success: false, error: 'Username or email already exist'})
+      const errorFeild = Object.keys(error.keyValue)[0]
+      res.status(404).json({success: false, error: `We already have an account with that ${errorFeild}`});
     }
   },
 
   signin: async (req, res, next) => {
-    const {email, hashedPassword } = req.body;
-    if (!email || !hashedPassword) {
-      res.status(400).json({ success: false, error: "Please provide email and password"})
-    }
+    const {username, password } = req.body;
+    // if (!email || !hashedPassword) {
+    //   res.status(400).json({ success: false, error: "Please provide email and password"})
+    // }
 
     try {
-      const user = await User.findOne({ email }).select("+password");
+      const user = await User.findOne({ username }).select("+password");
       if (!user) {
         res.status(404).json({success: false, error: "Invalid credentials!"})
       }
 
-      const isMatch = await user.matchPasswords(hashedPassword);
+      const isMatch = await user.matchPasswords(password);
       if(!isMatch) {
         res.status(404).json({success: false, error: "Invalid credentials!"})
       }

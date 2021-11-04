@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService';
 import bcrypt from 'bcryptjs';
 
-export const SignUp = () => {
+export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -11,24 +11,21 @@ export const SignUp = () => {
 
   const history = useHistory();
 
-  const signupMsgStyles = {
-    color: 'red',
-  }
-
   const setInput = (setter: any) => (event: any) => {
     setter(event.currentTarget.value);
   }
 
   const addUser = async () => {
-    const salt = await bcrypt.genSalt(10)
-    const hashedPassword = await bcrypt.hash(password, salt)
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
     try {
       const {data}: any = await Auth.createUser({username, hashedPassword, email});
       localStorage.setItem('token', data.token);
-      history.push('/')
+      setAuthMesgs('User created successfuly!')
+      history.push('/');
     } catch(err: any) {
       setError(err.response.data.error);
-      setTimeout(() => {setError("")}, 4000)
+      setTimeout(() => { setError("") }, 4000);
     }
   }
 
@@ -67,9 +64,8 @@ export const SignUp = () => {
           onChange={setInput(setPassword)}
          />
         <button type='submit'>Sign up</button>
-        <p style={signupMsgStyles}>{error}</p>
       </form>   
-      
+      <p style={{color: 'red'}}>{error}</p>
     </div>
   )
 }

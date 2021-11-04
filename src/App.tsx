@@ -10,14 +10,21 @@ import { SignUp } from './Pages/SignUp/SignUp';
 
 const App: React.FC = () => {
   const [addTasks, setAddTasks] = useState<any>([]);
+  const [authMesgs, setAuthMesgs] = useState<any>("");
+
+  setTimeout(() => { setAuthMesgs("") }, 4000);
 
   return (
     <Router>
       <div className="App">
         <Nav />
         <Switch>
-          <Route path ='/' exact component={SignIn} />
-          <Route path='/signup' exact component={SignUp} />
+          <Route path ='/' exact >
+            <SignIn authMesgs={authMesgs} setAuthMesgs={setAuthMesgs} />
+          </Route>
+          <Route path='/signup' exact >
+            <SignUp setAuthMesgs={setAuthMesgs} />
+          </Route>
           <Route path='/tasks' exact>  
             <AddTask setAddTasks={setAddTasks} />
             <Tasks setAddTasks={setAddTasks} addTasks={addTasks} />
