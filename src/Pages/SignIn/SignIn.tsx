@@ -34,9 +34,19 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
       <h1>Sign in</h1>
       <form className='sign-in-form' onSubmit={logIn}>
         <label htmlFor='username' />Username
-        <input type ='text' id='username' onChange={setInput(setUsername)}></input> 
+        <input 
+          type ='text' 
+          required
+          id='username' 
+          onChange={setInput(setUsername)}
+        ></input> 
         <label htmlFor='password' />Password
-        <input type ='password' id ='password' onChange={setInput(setPassword)}></input>
+        <input 
+          type ='password' 
+          required
+          id ='password' 
+          onChange={setInput(setPassword)}
+        ></input>
         <button type='submit'>Sign in</button>
         <button onClick={signUp}>Sign up</button>
       </form>    

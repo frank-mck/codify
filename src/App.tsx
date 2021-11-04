@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './styles/App.css';
-import { AddTask } from './components/AddTask/AddTask';
 import { Tasks } from './Pages/Tasks/Tasks';
 import { Nav } from './components/Nav/Nav';
 import { SignIn } from './Pages/SignIn/SignIn';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { SignUp } from './Pages/SignUp/SignUp';
+import PrivateRoute from './components/routing/PrivateRoute';
 
 
 const App: React.FC = () => {
@@ -25,10 +25,10 @@ const App: React.FC = () => {
           <Route path='/signup' exact >
             <SignUp setAuthMesgs={setAuthMesgs} />
           </Route>
-          <Route path='/tasks' exact>  
-            <AddTask setAddTasks={setAddTasks} />
-            <Tasks setAddTasks={setAddTasks} addTasks={addTasks} />
+          <Route exact path='/tasks' >
+            <Tasks setAddTasks={setAddTasks} addTasks={addTasks} /> 
           </Route>
+           
         </Switch>
       </div>
     </Router>

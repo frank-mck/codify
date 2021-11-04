@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TaskDataService from '../../services/TaskService';
 import Button from '@mui/material/Button';
 import { DeleteTask } from '../../components/DeleteTask';
+import { AddTask } from '../../components/AddTask/AddTask';
+import { useHistory } from 'react-router-dom';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
 
@@ -12,6 +14,14 @@ interface keyValuePair {
 
 export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
   const [update, setUpdate] = useState<keyValuePair>({_id: '', task: ''});
+
+  const history = useHistory();
+
+  useEffect(() => {
+    if(!localStorage.getItem('authToken')) {
+      history.push('/')
+    }
+  }, [history])
 
   const editTask = async (task: {task: string}) => {
     const updated = await TaskDataService.updateTask(update._id, task);
@@ -30,6 +40,8 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
   }
 
   return (
+    <>
+    <AddTask setAddTasks={setAddTasks} />
     <div className ='tasks-container'>
       {addTasks.map((task: keyValuePair, key: number) => {
         // returns an edit form if the user clicks on an edit button
@@ -70,5 +82,6 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
         }
       })}
     </div>
+    </>
   )
 }
