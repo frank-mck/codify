@@ -34,11 +34,11 @@ export const AddTask: React.FC<any> = ({ setAddTasks }) => {
           onChange={(e) => setTask(e.target.value)}>
         </input>
         <Button
-         variant="contained"
-         data-testid='add-task-form-btn'
-         type ='submit'
-         value ='Add'
-         style={{margin: '15px', backgroundColor: 'rgb(0, 252, 201)', color: 'black'}}
+          variant="contained"
+          data-testid='add-task-form-btn'
+          type ='submit'
+          value ='Add'
+          style={{margin: '15px', backgroundColor: 'rgb(0, 252, 201)', color: 'black'}}
          >Add</Button>
       </form>
     </div>

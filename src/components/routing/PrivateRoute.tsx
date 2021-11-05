@@ -1,17 +1,16 @@
 import React from 'react'
-import {Redirect, Route, useHistory } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
-export const PrivateRoute: React.FC<any> = ({ comp: Component, ...rest }) => {
+const PrivateRoute: React.FC<any> = ({ component: Component, setAddTasks, addTasks, ...rest }) => {
 
-  const history = useHistory();
   return (
     <Route 
       {...rest}
       render={(props: any) => {
-          localStorage.getItem("authTken") ? (
-            <Component {...props} />
+          localStorage.getItem("authToken") ? (
+            <Component {...props} setAddTasks={setAddTasks} addTasks={addTasks} />
           ) : (
-            history.push('/')
+            <Redirect to='/' />
           )        
         }
       }

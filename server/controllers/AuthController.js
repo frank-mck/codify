@@ -1,4 +1,5 @@
-const User = require('../models/User')
+const User = require('../models/User');
+const ErrorResponse = require('../utils/errorResponse')
 
 const AuthController = {
   getAllUsers: async (req, res) => {
@@ -18,29 +19,25 @@ const AuthController = {
       });
       sendToken(user, 201, res)
     } catch (error) {
-      const errorFeild = Object.keys(error.keyValue)[0]
-      res.status(404).json({success: false, error: `We already have an account with that ${errorFeild}`});
+      const errorFeild = Object.keys(error.keyValue)[0];
+      return next(new ErrorResponse(`We already have an account with that ${errorFeild}`, 404))
     }
   },
 
   signin: async (req, res, next) => {
     const {username, password } = req.body;
-    // if (!email || !hashedPassword) {
-    //   res.status(400).json({ success: false, error: "Please provide email and password"})
-    // }
-
     try {
       const user = await User.findOne({ username }).select("+password");
       if (!user) {
-        res.status(404).json({success: false, error: "Invalid credentials!"})
+        return next(new ErrorResponse("Invalid username or password!", 404))
       }
 
       const isMatch = await user.matchPasswords(password);
       if(!isMatch) {
-        res.status(404).json({success: false, error: "Invalid credentials!"})
+        return next(new ErrorResponse("Invalid username or password!", 404))
       }
 
-      sendToken(user, 200, res)
+      if (isMatch) sendToken(user, 200, res)
     } catch (error) {
       console.log(error)
     }

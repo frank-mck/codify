@@ -2,7 +2,7 @@ const Task = require('../models/Task.js');
 
 TaskController = {
   apiGetTasks: async (req, res) => {
-    const result = await Task.find({})
+    const result = await Task.find({});
       try { 
         res.send(result)
       } catch(err) {
@@ -12,7 +12,7 @@ TaskController = {
 
   apiPostTask: async (req, res) => {
     const taskText = req.body.task;
-    const task = await new Task({task: taskText, edit: false})
+    const task = await new Task({task: taskText})
     try {
       await task.save();
       res.end();

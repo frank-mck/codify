@@ -7,6 +7,10 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const authMsgStyles: any = {
+    color: authMesgs === "Invalid username or password!" ? 'red' : 'green'
+  }
+
   const history = useHistory();
 
   const setInput = (setter: any) => (event: any) => {
@@ -50,7 +54,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
         <button type='submit'>Sign in</button>
         <button onClick={signUp}>Sign up</button>
       </form>    
-      <p style={{color: 'green'}}>{authMesgs}</p>  
+      <p style={authMsgStyles}>{authMesgs}</p>  
     </div>
   )
 }
