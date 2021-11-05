@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
   profileImage: { 
     type: String 
   },
+  task: { 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Task'
+  },
   resetPasswordToken: String,
   resetPasswordExpire: Date,
 });

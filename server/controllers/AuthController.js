@@ -37,7 +37,8 @@ const AuthController = {
         return next(new ErrorResponse("Invalid username or password!", 404))
       }
 
-      if (isMatch) sendToken(user, 200, res)
+      if (isMatch) sendToken(user, 200, res);
+      next();
     } catch (error) {
       console.log(error)
     }

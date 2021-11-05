@@ -3,8 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
-const tasks = require('./routes/tasksRouter.js');
-const auth = require('./routes/authRouter.js');
+const tasksRouter = require('./routes/tasksRouter.js');
+const authRouter = require('./routes/authRouter.js');
 const errorHandler = require('./middleware/error')
 
 mongoose.connect(process.env.DATABASE, {
@@ -18,9 +18,9 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use('/api/v1', tasks);
+app.use('/api/v1/auth', authRouter);
 
-app.use('/api/v1/auth', auth);
+app.use('/api/v1', tasksRouter);
 
 // Error handler should be last piece of middleware
 app.use(errorHandler);
