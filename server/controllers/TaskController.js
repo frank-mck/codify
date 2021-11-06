@@ -1,9 +1,14 @@
 const Task = require('../models/Task.js');
+const User = require('../models/User.js');
 const ErrorResponse = require('../utils/errorResponse');
 
 TaskController = {
+  user: {},
+
   apiGetTasks: async (req, res, next) => {
-    const result = await Task.find();
+    const user = await User.findOne(req.user);
+    TaskController.user = user
+    const result = await Task.find({ user: user._id }).populate('user')
       try { 
         res.send(result);
       } catch(err) {
@@ -13,7 +18,7 @@ TaskController = {
 
   apiPostTask: async (req, res) => {
     const taskText = req.body.task;
-    const task = await new Task({task: taskText})
+    const task = await new Task({task: taskText, user: TaskController.user }).populate('user');
     try {
       await task.save();
       res.end();
