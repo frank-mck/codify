@@ -1,10 +1,11 @@
 const Task = require('../models/Task.js');
+const ErrorResponse = require('../utils/errorResponse');
 
 TaskController = {
-  apiGetTasks: async (req, res) => {
-    const result = await Task.find({});
+  apiGetTasks: async (req, res, next) => {
+    const result = await Task.find();
       try { 
-        res.send(result)
+        res.send(result);
       } catch(err) {
         console.log(err)
       }

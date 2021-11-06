@@ -17,7 +17,7 @@ const AuthController = {
       const user = await User.create({ 
         username: username, email: email, password: hashedPassword
       });
-      sendToken(user, 201, res)
+      sendToken(user, 201, res);
     } catch (error) {
       const errorFeild = Object.keys(error.keyValue)[0];
       return next(new ErrorResponse(`We already have an account with that ${errorFeild}`, 404))
@@ -31,14 +31,13 @@ const AuthController = {
       if (!user) {
         return next(new ErrorResponse("Invalid username or password!", 404))
       }
-
       const isMatch = await user.matchPasswords(password);
+      if (isMatch) {
+        sendToken(user, 200, res);
+      }
       if(!isMatch) {
         return next(new ErrorResponse("Invalid username or password!", 404))
-      }
-
-      if (isMatch) sendToken(user, 200, res);
-      next();
+      } 
     } catch (error) {
       console.log(error)
     }
