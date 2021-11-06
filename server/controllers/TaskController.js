@@ -8,7 +8,10 @@ TaskController = {
   apiGetTasks: async (req, res, next) => {
     const user = await User.findOne(req.user);
     TaskController.user = user
-    const result = await Task.find({ user: user._id }).populate('user')
+    const result = await Task.find({
+       user: user._id })
+       .populate('user')
+       .sort({ createdAt: "desc" });
       try { 
         res.send(result);
       } catch(err) {
@@ -18,7 +21,8 @@ TaskController = {
 
   apiPostTask: async (req, res) => {
     const taskText = req.body.task;
-    const task = await new Task({task: taskText, user: TaskController.user }).populate('user');
+    const user = await User.findOne(TaskController.user)
+    const task = await new Task({task: taskText, user: user._id }).populate('user');
     try {
       await task.save();
       res.end();
