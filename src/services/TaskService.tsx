@@ -1,26 +1,27 @@
-import http from './httpTasks';
+import http from './http';
 
 class TaskDataService {
+  url: string = '/tasks'
+
   async getAll() {
-    const response = await http.get('');
-    return response;
+    return await http.instance(this.url).get('')
   }
 
   async createTask(data: { task: string }) {
-    await http.post('/new', data);
+    return await http.instance(this.url).post('/new', data);
   }
 
   async deleteTask(id: string) {
-    await http.delete(`/${id}`)
+    await http.instance(this.url).delete(`/${id}`)
   }
 
   async updateTask(id: string, data: { task: string }) {
-    const response = await http.put(`/edit/${id}`, data);
+    const response = await http.instance(this.url).put(`/edit/${id}`, data);
     return response;
   }
 
   async getById(id :string) {
-    await http.get(`/${id}`)
+    return await http.instance(this.url).get(`/${id}`)
   }
 }
 

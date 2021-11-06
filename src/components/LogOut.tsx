@@ -6,7 +6,9 @@ export const LogOut = () => {
   const history: any = useHistory();
 
   const signOut = () => {
-    localStorage.setItem('authToken', '')
+    localStorage.setItem('authToken', '');
+    localStorage.setItem('tasksToken', '')
+    localStorage.setItem('token', '')
     history.push('/')
   }
 

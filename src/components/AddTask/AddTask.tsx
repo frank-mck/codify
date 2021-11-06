@@ -1,17 +1,20 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import './AddTask.css';
 import Button from '@mui/material/Button';
 import TaskDataService from '../../services/TaskService';
 
 export const AddTask: React.FC<any> = ({ setAddTasks }) => {
-  const [task, setTask] = React.useState<string>('');
+  const [task, setTask] = useState<string>('');
 
-  React.useEffect(() => {
-    getAllTasks().then(res => setAddTasks(res.data));
+  useEffect(() => {
+    if (localStorage.getItem("authToken")) {
+      getAllTasks().then(res => setAddTasks(res.data));
+    }
   }, [setAddTasks]);
 
   const getAllTasks = async () => {
-    return await TaskDataService.getAll();
+    const data: any = await TaskDataService.getAll();
+    return data;
   }
 
   const addTask: React.FormEventHandler<HTMLFormElement> = async (e) => {

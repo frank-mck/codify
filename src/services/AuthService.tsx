@@ -1,12 +1,16 @@
-import auth from './httpAuth';
+import http from './http';
 
 class AuthDataService {
+  url: string = '/auth'
+
   async createUser(user: any) {
-    return await auth.post('/signup', user);
+    return await http.instance(this.url).post('/signup', user);
   }
 
   async loginUser(user: any) {
-    return await auth.post('/signin', user);
+    const {data}: any = await http.instance(this.url).post('/signin', user);
+    localStorage.setItem('authToken', data.token);
+    return data
   }
 }
 
