@@ -17,7 +17,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav setAuthMesgs={setAuthMesgs} />
         <Switch>
           <Route path ='/' exact >
             <SignIn authMesgs={authMesgs} setAuthMesgs={setAuthMesgs} />

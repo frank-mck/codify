@@ -21,7 +21,7 @@ TaskController = {
 
   apiPostTask: async (req, res) => {
     const taskText = req.body.task;
-    const user = await User.findOne(TaskController.user)
+    const user = await User.findOne(TaskController.user);
     const task = await new Task({task: taskText, user: user._id }).populate('user');
     try {
       await task.save();

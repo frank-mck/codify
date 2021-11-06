@@ -2,11 +2,11 @@ import React from 'react';
 import { LogOut } from '../LogOut';
 import './Nav.css'
 
-export const Nav = () => {
+export const Nav: React.FC<any> = ({ setAuthMesgs }) => {
   return (
     <nav>
       <h1>Codify</h1>
-      <LogOut />
+      <LogOut setAuthMesgs={setAuthMesgs} />
     </nav>
   )
 }
