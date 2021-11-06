@@ -6,6 +6,7 @@ import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
+import jwt from 'jsonwebtoken';
 
 interface keyValuePair {
   _id: string, 
@@ -17,11 +18,21 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
 
   const history = useHistory();
 
+  const getVerification = (): string | object => {
+    const token: any = localStorage.getItem('authToken');
+    const secret: any = process.env.REACT_APP_JWT_SECRET;
+    try {
+      return jwt.verify(token, secret);
+    } catch(error) {
+      return 'Not verified!'
+    }
+  }
+
   useEffect(() => {
-    if(!localStorage.getItem('authToken')) {
+    if(getVerification() === 'Not verified!') {
       history.push('/')
     }
-  }, [history])
+  });
 
   const editTask = async (task: {task: string}) => {
     const updated = await TaskDataService.updateTask(update._id, task);

@@ -1,6 +1,5 @@
 const Task = require('../models/Task.js');
 const User = require('../models/User.js');
-const ErrorResponse = require('../utils/errorResponse');
 
 TaskController = {
   user: {},
