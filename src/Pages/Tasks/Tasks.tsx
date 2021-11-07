@@ -4,9 +4,9 @@ import Button from '@mui/material/Button';
 import { DeleteTask } from '../../components/DeleteTask';
 import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
+import verifyToken from '../../services/verifyToken';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
-import jwt from 'jsonwebtoken';
 
 interface keyValuePair {
   _id: string, 
@@ -18,18 +18,8 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
 
   const history = useHistory();
 
-  const getVerification = (): string | object => {
-    const token: any = localStorage.getItem('authToken');
-    const secret: any = process.env.REACT_APP_JWT_SECRET;
-    try {
-      return jwt.verify(token, secret);
-    } catch(error) {
-      return 'Not verified!'
-    }
-  }
-
   useEffect(() => {
-    if(getVerification() === 'Not verified!') {
+    if(verifyToken === 'Not verified!') {
       history.push('/')
     }
   });
