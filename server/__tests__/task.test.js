@@ -15,9 +15,11 @@ describe('Task', () => {
 
   afterAll(async () => {
     const collection = process.env.COLLECTION;
-    await db.dropCollection(collection);
-    await db.dropDatabase();
-    await db.close();
+    Promise.all([
+      await db.dropCollection(collection),
+      await db.dropDatabase(),
+      await db.close()
+    ])
   })
 
   test('Add task POST', async () => {
@@ -25,5 +27,14 @@ describe('Task', () => {
     await res.save();
     
     expect(res.task).toBe("take out the trash");
+  });
+
+  test('Update task POST', async () => {
+    const res = await Tasks.create({ task: "take out the trash" });
+    await res.save();
+    const data = await Tasks.findOneAndUpdate({ _id: res._id }, { task: "Get bin bags" });
+    await data.save();
+    const updatedTask = await Tasks.findById({_id: res._id })
+    expect(updatedTask.task).toBe('Get bin bags');
   })
 })
