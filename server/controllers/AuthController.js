@@ -32,6 +32,7 @@ const AuthController = {
         return next(new ErrorResponse("Invalid username or password!", 404))
       }
       const isMatch = await user.matchPasswords(password);
+      console.log(isMatch)
       if (isMatch) {
         sendToken(user, 200, res);
       }

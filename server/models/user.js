@@ -20,9 +20,6 @@ const userSchema = new mongoose.Schema({
     unique: [true, "We already have an account with that email!"],
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please provide a valid email address'],
   },
-  profileImage: { 
-    type: String 
-  },
   task: { 
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Task'

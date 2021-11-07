@@ -9,12 +9,12 @@ describe('Task', () => {
   beforeAll(async () => {
    connection = await mongoose.connect(process.env.TEST_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true  });
    db = mongoose.connection;
-   const collection = process.env.COLLECTION;
+   const collection = process.env.TASK_COLLECTION;
    await db.createCollection(collection);
   })
 
   afterAll(async () => {
-    const collection = process.env.COLLECTION;
+    const collection = process.env.TASK_COLLECTION;
     Promise.all([
       await db.dropCollection(collection),
       await db.dropDatabase(),
