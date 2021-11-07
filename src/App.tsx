@@ -5,8 +5,6 @@ import { Nav } from './components/Nav/Nav';
 import { SignIn } from './Pages/SignIn/SignIn';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { SignUp } from './Pages/SignUp/SignUp';
-import PrivateRoute from './components/routing/PrivateRoute';
-
 
 const App: React.FC = () => {
   const [addTasks, setAddTasks] = useState<any>([]);
@@ -25,10 +23,9 @@ const App: React.FC = () => {
           <Route path='/signup' exact >
             <SignUp setAuthMesgs={setAuthMesgs} />
           </Route>
-          <PrivateRoute exact path='/tasks' >
-            <Tasks setAddTasks={setAddTasks} addTasks={addTasks} /> 
-          </PrivateRoute>
-           
+          <Route exact path='/tasks' >
+            <Tasks setAddTasks={setAddTasks} addTasks={addTasks} setAuthMesgs={setAuthMesgs} />   
+          </Route>       
         </Switch>
       </div>
     </Router>

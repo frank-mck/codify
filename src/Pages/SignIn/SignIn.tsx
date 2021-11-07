@@ -2,13 +2,15 @@ import { useState } from 'react';
 import './SignIn.css';
 import { useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService'
+import { AuthEnums } from './AuthEnums';
 
 export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const authMsgStyles: any = {
-    color: authMesgs === "Invalid username or password!" ? 'red' : 'green'
+    color: (authMesgs === AuthEnums.successSignup && 'green') || (authMesgs === AuthEnums.signout && 'green') ||
+    (authMesgs === AuthEnums.invalidCredentials && 'red') || (authMesgs === AuthEnums.unorthorized && 'red')
   }
 
   const history = useHistory();
@@ -21,8 +23,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
     event.preventDefault();
     try { 
       const user = await Auth.loginUser({username: username, password: password});
-      if (user) history.push('/tasks');
-      //window.location.reload();
+      if (user !== 'Not verified!') history.push('/tasks');
     } catch (err: any) {
       setAuthMesgs(err.response.data.error)
     }

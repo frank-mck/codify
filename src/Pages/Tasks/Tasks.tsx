@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { DeleteTask } from '../../components/DeleteTask';
 import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
-import verifyToken from '../../services/verifyToken';
+import verifyToken from '../../utils/verifyToken';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
 
@@ -13,21 +13,26 @@ interface keyValuePair {
   task: string,
 }
 
-export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
+export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) => {
   const [update, setUpdate] = useState<keyValuePair>({_id: '', task: ''});
 
   const history = useHistory();
 
   useEffect(() => {
-    if(verifyToken === 'Not verified!') {
+    if(verifyToken(localStorage.getItem('authToken')) === 'Not verified!') {
       history.push('/')
     }
-  });
+  }, [history]);
 
   const editTask = async (task: {task: string}) => {
-    const updated = await TaskDataService.updateTask(update._id, task);
-    const getAll = await TaskDataService.getAll().then(res => setAddTasks(res.data));
-    Promise.all([updated, getAll])
+    try {
+      const updated = await TaskDataService.updateTask(update._id, task);
+      const getAll = await TaskDataService.getAll().then(res => setAddTasks(res.data));
+      Promise.all([updated, getAll])
+    } catch(err: any) {
+      setAuthMesgs(err.response.data.error);
+      history.push('/');
+    }
   }
 
   const formHandler = (e: any) => {
@@ -42,7 +47,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
 
   return (
     <>
-    <AddTask setAddTasks={setAddTasks} />
+    <AddTask setAddTasks={setAddTasks} setAuthMesgs={setAuthMesgs} />
     <div className ='tasks-container'>
       {addTasks.map((task: keyValuePair, key: number) => {
         // returns an edit form if the user clicks on an edit button
@@ -69,6 +74,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks }) => {
             <p>{task.task}</p> 
             <div className='task-buttons'>
             <DeleteTask 
+              setAuthMesgs={setAuthMesgs}
               addTasks={addTasks} 
               setAddTasks={setAddTasks} 
               taskId={task._id} 

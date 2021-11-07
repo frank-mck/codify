@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react';
 import './AddTask.css';
 import Button from '@mui/material/Button';
 import TaskDataService from '../../services/TaskService';
+import { useHistory } from 'react-router-dom';
 
-export const AddTask: React.FC<any> = ({ setAddTasks }) => {
+export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs }) => {
   const [task, setTask] = useState<string>('');
+
+  const history = useHistory();
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
@@ -19,10 +22,15 @@ export const AddTask: React.FC<any> = ({ setAddTasks }) => {
 
   const addTask: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    const createTask = await TaskDataService.createTask({ task: task });  
-    const getTasks = getAllTasks().then(res => setAddTasks(res.data));
-    Promise.all([createTask, getTasks]);
-    setTask('');
+    try {
+      const createTask = await TaskDataService.createTask({ task: task });  
+      const getTasks = getAllTasks().then(res => setAddTasks(res.data));
+      Promise.all([createTask, getTasks]);
+      setTask('');
+    } catch (err: any) {
+      setAuthMesgs(err.response.data.error);
+      history.push('/');
+    }
   }
 
   return (

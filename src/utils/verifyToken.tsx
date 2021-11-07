@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const verifyToken = (): string | object => {
-  const token: any = localStorage.getItem('authToken');
+const verifyToken = (token: any): string | object => {
   const secret: any = process.env.REACT_APP_JWT_SECRET;
   try {
     return jwt.verify(token, secret);
@@ -10,4 +9,4 @@ const verifyToken = (): string | object => {
   }
 }
 
-export default verifyToken();
+export default verifyToken;

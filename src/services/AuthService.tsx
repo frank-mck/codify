@@ -1,4 +1,5 @@
-import http from './http';
+import http from '../utils/http';
+import verifyToken from '../utils/verifyToken';
 
 class AuthDataService {
   url: string = '/auth'
@@ -9,8 +10,9 @@ class AuthDataService {
 
   async loginUser(user: any) {
     const {data}: any = await http.instance(this.url).post('/signin', user);
+    const verification = verifyToken(data.token);
     localStorage.setItem('authToken', data.token);
-    return data
+    return verification
   }
 }
 
