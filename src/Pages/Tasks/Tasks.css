@@ -15,6 +15,7 @@
   padding: 0 3rem;
   justify-content: space-between;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
+  animation: flip .3s ease-in-out 1;
 }
 
 .edit-task-form {
@@ -22,11 +23,21 @@
   align-items: center;
   justify-content: space-between;
   min-width: 445px;
+  border: 1px solid rgb(240, 240, 240);
   margin: .8rem 0;
   padding: 0 3rem;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   background-color: rgb(41, 145, 122);
+  visibility: hidden;
+  animation: flip .3s ease-in-out 1;
+}
+
+@keyframes flip {
+  100% {
+    transform: rotateX(360deg);
+    backface-visibility: hidden;
+  }
 }
 
 .edit-task-input {

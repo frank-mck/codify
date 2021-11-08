@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import verifyToken from '../../utils/verifyToken';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
+//import styled, { keyframes } from 'styled-components'
 
 interface keyValuePair {
   _id: string, 
@@ -18,6 +19,10 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
 
   const history = useHistory();
 
+  const editFormStyles: any = {
+    visibility: update && 'visible'
+  }
+
   useEffect(() => {
     if(verifyToken(localStorage.getItem('authToken')) === 'Not verified!') {
       history.push('/')
@@ -25,10 +30,12 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
   }, [history]);
 
   const editTask = async (task: {task: string}) => {
+    
     try {
       const updated = TaskDataService.updateTask(update._id, task);
       const getAll = TaskDataService.getAll().then(res => setAddTasks(res.data));
-      await Promise.all([updated, getAll])
+      await Promise.all([updated, getAll]);
+      
     } catch(err: any) {
       setAuthMesgs(err.response.data.error);
       history.push('/');
@@ -53,7 +60,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
         // returns an edit form if the user clicks on an edit button
         if (update._id === task._id) {
           return (
-          <form className='edit-task-form' key={key} onSubmit={formHandler}>
+          <form style={editFormStyles} className='edit-task-form' key={key} onSubmit={formHandler}>
             <input 
               className='edit-task-input'
               type='text' 
@@ -70,7 +77,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
           </form> )
         } else {
           return (
-          <div key={key} id={task._id} className='task'>
+          <div key={key} id={task._id} className='task' >
             <p>{task.task}</p> 
             <div className='task-buttons'>
             <DeleteTask 
