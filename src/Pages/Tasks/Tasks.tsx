@@ -19,9 +19,9 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
 
   const history = useHistory();
 
-  useEffect(() => {
-    !verifyToken(localStorage.getItem('authToken')) && history.push('/');
-  }, [history]);
+  // useEffect(() => {
+  //   !verifyToken(localStorage.getItem('authToken')) && history.push('/');
+  // }, [history]);
 
   const editFormStyles: any = {
     visibility: update && 'visible'
