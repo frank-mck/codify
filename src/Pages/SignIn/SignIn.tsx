@@ -23,7 +23,8 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
     event.preventDefault();
     try { 
       const user = await Auth.loginUser({username: username, password: password});
-      if (user !== 'Not verified!') history.push('/tasks');
+      console.log(user)
+      if (user) history.push('/tasks');
     } catch (err: any) {
       setAuthMesgs(err.response.data.error);
     }
