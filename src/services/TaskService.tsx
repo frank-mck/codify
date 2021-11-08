@@ -12,7 +12,7 @@ class TaskDataService {
   }
 
   async deleteTask(id: string) {
-    await http.instance(this.url).delete(`/${id}`)
+    await http.instance(this.url).delete(`/delete/${id}`)
   }
 
   async updateTask(id: string, data: { task: string }) {

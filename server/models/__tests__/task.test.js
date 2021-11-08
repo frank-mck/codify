@@ -1,5 +1,5 @@
 const Tasks = require('../Task');
-const TestDatabase = require('../../TestDatabase')
+const TestDatabase = require('../../TestDatabase');
 require('dotenv').config();
 
 describe('Task', () => {

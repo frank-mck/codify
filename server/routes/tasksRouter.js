@@ -10,7 +10,7 @@ router.route('/tasks/new').post(protect, TaskCtrl.apiPostTask);
 
 router.route('/tasks/edit/:id').put(protect, TaskCtrl.apiEditTask)
 
-router.route('/tasks/:id').delete(protect, TaskCtrl.apiDeleteTask);
+router.route('/tasks/delete/:id').delete(protect, TaskCtrl.apiDeleteTask);
 
 router.route('/tasks/:id').get(TaskCtrl.apiFindTask);
 
