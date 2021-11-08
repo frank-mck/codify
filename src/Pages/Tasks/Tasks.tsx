@@ -24,7 +24,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
   }
 
   useEffect(() => {
-    if(verifyToken(localStorage.getItem('authToken')) === 'Not verified!') {
+    if(!verifyToken(localStorage.getItem('authToken'))) {
       history.push('/')
     }
   }, [history]);
