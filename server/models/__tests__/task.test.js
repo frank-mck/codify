@@ -1,25 +1,15 @@
 const Tasks = require('../Task');
-const mongoose = require('mongoose');
+const TestDatabase = require('../../TestDatabase')
 require('dotenv').config();
 
 describe('Task', () => {
-  let connection;
-  let db;
 
   beforeAll(async () => {
-   connection = await mongoose.connect(process.env.TEST_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true  });
-   db = mongoose.connection;
-   const collection = process.env.TASK_COLLECTION;
-   await db.createCollection(collection);
+    TestDatabase.connect();
   })
 
   afterAll(async () => {
-    const collection = process.env.TASK_COLLECTION;
-    Promise.all([
-      db.dropCollection(collection),
-      db.dropDatabase(),
-      db.close()
-    ])
+    TestDatabase.disconnect();
   })
 
   test('Add task POST', async () => {
