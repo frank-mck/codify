@@ -5,11 +5,11 @@ require('dotenv').config();
 describe('Task', () => {
 
   beforeAll(async () => {
-    TestDatabase.connect();
+    await TestDatabase.connect();
   })
 
   afterAll(async () => {
-    TestDatabase.disconnect();
+    await TestDatabase.disconnect();
   })
 
   test('Add task POST', async () => {

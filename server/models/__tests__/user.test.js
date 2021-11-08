@@ -1,26 +1,16 @@
 const User = require('../User');
-const mongoose = require('mongoose');
+const TestDatabase = require('../../TestDatabase')
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 describe('User', () => {
-  let connection;
-  let db;
 
   beforeAll(async () => {
-   connection = await mongoose.connect(process.env.TEST_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true  });
-   db = mongoose.connection;
-   const collection = process.env.USER_COLLECTION;
-   await db.createCollection(collection);
+    await TestDatabase.connect();
   })
 
   afterAll(async () => {
-    const collection = process.env.USER_COLLECTION;
-    Promise.all([
-      await db.dropCollection(collection),
-      await db.dropDatabase(),
-      await db.close()
-    ])
+    await TestDatabase.disconnect();
   });
 
   test('Create user', async () => {
