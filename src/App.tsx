@@ -29,7 +29,7 @@ const App: React.FC = () => {
           <Route path='/signup' exact >
             <SignUp setAuthMesgs={setAuthMesgs} />
           </Route>
-          <Route path='/tasks' exact >
+          <Route path='/tasks' >
             <Tasks setAddTasks={setAddTasks} addTasks={addTasks} setAuthMesgs={setAuthMesgs} />   
           </Route>       
         </Switch>
