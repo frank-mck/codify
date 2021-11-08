@@ -23,8 +23,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
     event.preventDefault();
     try { 
       const authenticate = await Auth.loginUser({username: username, password: password});
-      console.log(authenticate)
-      setTimeout(() => {if (authenticate) history.push('/tasks')}, 500);
+      authenticate && history.push('/tasks');
     } catch (err: any) {
       setAuthMesgs(err.response.data.error);
     }
