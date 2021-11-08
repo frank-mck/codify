@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import TaskDataService from '../../services/TaskService';
 import Button from '@mui/material/Button';
 import { DeleteTask } from '../../components/DeleteTask';
@@ -6,7 +6,7 @@ import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
-import verifyToken from '../../utils/verifyToken';
+//import verifyToken from '../../utils/verifyToken';
 //import styled, { keyframes } from 'styled-components'
 
 interface keyValuePair {
