@@ -20,7 +20,7 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
       history.push('/');
     }
     const data = addTasks.filter((task: keyValuePair) => task._id !== taskId);
-    setAddTasks([...data])
+    setAddTasks([...data]);
   }
 
   return (
