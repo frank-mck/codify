@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const verifyToken = (token: any): object | any => {
+const verifyToken = (token: string): object | any => {
   const secret: any = process.env.REACT_APP_JWT_SECRET;
   try {
     return jwt.verify(token, secret);

@@ -6,7 +6,6 @@ import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
-import verifyToken from '../../utils/verifyToken';
 //import styled, { keyframes } from 'styled-components'
 
 interface keyValuePair {
@@ -20,7 +19,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
   const history = useHistory();
 
   useEffect(() => {
-    if(!verifyToken(localStorage.getItem('authToken'))) {
+    if(localStorage.getItem('authToken')) {
       history.push('/');
     }
   }, [history]);

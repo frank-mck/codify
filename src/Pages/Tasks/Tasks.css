@@ -15,7 +15,7 @@
   padding: 0 3rem;
   justify-content: space-between;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
-  animation: flip .3s ease-in-out 1;
+  animation: flip .2s ease-in-out 1;
 }
 
 .edit-task-form {
@@ -30,7 +30,7 @@
   border-bottom-right-radius: 50px;
   background-color: rgb(41, 145, 122);
   visibility: hidden;
-  animation: flip .3s ease-in-out 1;
+  animation: flip .2s ease-in-out 1;
 }
 
 @keyframes flip {
