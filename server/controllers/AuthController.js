@@ -1,5 +1,6 @@
 const User = require('../models/User');
-const ErrorResponse = require('../utils/errorResponse')
+const ErrorResponse = require('../utils/errorResponse');
+const bcrypt = require('bcryptjs')
 
 const AuthController = {
   getAllUsers: async (req, res) => {
@@ -12,7 +13,9 @@ const AuthController = {
   },
 
   signup: async (req, res, next) => {
-    const {username, email, hashedPassword} = req.body;
+    const {username, email, password} = req.body;
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
     try {
       const user = await User.create({ 
         username: username, email: email, password: hashedPassword
@@ -32,7 +35,6 @@ const AuthController = {
         return next(new ErrorResponse("Invalid username or password!", 404))
       }
       const isMatch = await user.matchPasswords(password);
-      console.log(isMatch)
       if (isMatch) {
         sendToken(user, 200, res);
       }

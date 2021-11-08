@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService';
-import bcrypt from 'bcryptjs';
-import { AuthEnums } from '../SignIn/AuthEnums';
+import { AuthEnums } from '../../utils/AuthEnums';
 
 export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
   const [username, setUsername] = useState('');
@@ -17,12 +16,10 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
   }
 
   const addUser = async () => {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
     try {
-      const {data}: any = await Auth.createUser({username, hashedPassword, email});
+      const {data}: any = await Auth.createUser({username, password, email});
       localStorage.setItem('token', data.token);
-      setAuthMesgs(AuthEnums.successSignup)
+      setAuthMesgs(AuthEnums.successSignup);
       history.push('/');
     } catch(err: any) {
       setError(err.response.data.error);

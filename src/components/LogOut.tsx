@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { AuthEnums } from '../Pages/SignIn/AuthEnums';
+import { AuthEnums } from '../utils/AuthEnums';
 
 export const LogOut: React.FC<any> = ({ setAuthMesgs }) => {
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './SignIn.css';
 import { useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService'
-import { AuthEnums } from './AuthEnums';
+import { AuthEnums } from '../../utils/AuthEnums';
 
 export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
   const [username, setUsername] = useState("");
@@ -25,7 +25,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
       const user = await Auth.loginUser({username: username, password: password});
       if (user !== 'Not verified!') history.push('/tasks');
     } catch (err: any) {
-      setAuthMesgs(err.response.data.error)
+      setAuthMesgs(err.response.data.error);
     }
   }
 

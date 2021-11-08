@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const User = require('../User');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 require('dotenv').config();
@@ -37,7 +37,7 @@ describe('User', () => {
     expect(token).toBeTruthy();
   });
 
-  test('Validate password on sign in', async () => {
+  test('Validate user if passwords match on sign in', async () => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash('test123', salt)
     const newUser = await User.create({username: 'frank2', email: 'frank2@frank2.com', password: hashedPassword });
@@ -46,5 +46,16 @@ describe('User', () => {
     const userAuth = await user.matchPasswords('test123');
     Promise.all([user, salt, hashedPassword, userAuth]);
     expect(userAuth).toBe(true);
+  });
+
+  test('invalidate user if password dosent match when user signs in', async () => {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash('test123', salt)
+    const newUser = await User.create({username: 'frank3', email: 'frank3@frank3.com', password: hashedPassword });
+    await newUser.save();
+    const user = await User.findOne({ username: newUser.username }).select("+password");
+    const userAuth = await user.matchPasswords('incorrect-password');
+    Promise.all([user, salt, hashedPassword, userAuth]);
+    expect(userAuth).toBe(false);
   })
 })

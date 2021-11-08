@@ -16,15 +16,14 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs }) => {
   }, [setAddTasks]);
 
   const getAllTasks = async () => {
-    const data: any = await TaskDataService.getAll();
-    return data;
+    return await TaskDataService.getAll();
   }
 
   const addTask: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     try {
       const createTask = await TaskDataService.createTask({ task: task });  
-      const getTasks = getAllTasks().then(res => setAddTasks(res.data));
+      const getTasks = getAllTasks().then(tasks => setAddTasks(tasks.data));
       Promise.all([createTask, getTasks]);
       setTask('');
     } catch (err: any) {

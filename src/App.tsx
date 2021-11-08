@@ -5,12 +5,18 @@ import { Nav } from './components/Nav/Nav';
 import { SignIn } from './Pages/SignIn/SignIn';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { SignUp } from './Pages/SignUp/SignUp';
+import { AuthEnums } from './utils/AuthEnums';
 
 const App: React.FC = () => {
   const [addTasks, setAddTasks] = useState<any>([]);
   const [authMesgs, setAuthMesgs] = useState<any>("");
 
-  setTimeout(() => { setAuthMesgs("") }, 4000);
+  setTimeout(() => { setAuthMesgs("") }, 10000);
+
+  if (authMesgs === AuthEnums.unorthorized) {
+    localStorage.setItem('authToken', '');
+    localStorage.setItem('token', '');
+  }
 
   return (
     <Router>

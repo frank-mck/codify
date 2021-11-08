@@ -26,9 +26,9 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
 
   const editTask = async (task: {task: string}) => {
     try {
-      const updated = await TaskDataService.updateTask(update._id, task);
-      const getAll = await TaskDataService.getAll().then(res => setAddTasks(res.data));
-      Promise.all([updated, getAll])
+      const updated = TaskDataService.updateTask(update._id, task);
+      const getAll = TaskDataService.getAll().then(res => setAddTasks(res.data));
+      await Promise.all([updated, getAll])
     } catch(err: any) {
       setAuthMesgs(err.response.data.error);
       history.push('/');

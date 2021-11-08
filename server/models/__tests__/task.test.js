@@ -1,4 +1,4 @@
-const Tasks = require('../models/Task');
+const Tasks = require('../Task');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -16,9 +16,9 @@ describe('Task', () => {
   afterAll(async () => {
     const collection = process.env.TASK_COLLECTION;
     Promise.all([
-      await db.dropCollection(collection),
-      await db.dropDatabase(),
-      await db.close()
+      db.dropCollection(collection),
+      db.dropDatabase(),
+      db.close()
     ])
   })
 
