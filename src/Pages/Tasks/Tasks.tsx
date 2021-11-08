@@ -4,9 +4,9 @@ import Button from '@mui/material/Button';
 import { DeleteTask } from '../../components/DeleteTask';
 import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
-import verifyToken from '../../utils/verifyToken';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
+import verifyToken from '../../utils/verifyToken';
 //import styled, { keyframes } from 'styled-components'
 
 interface keyValuePair {
@@ -19,18 +19,17 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
 
   const history = useHistory();
 
+  useEffect(() => {
+    if(!verifyToken(localStorage.getItem('authToken'))) {
+      history.push('/');
+    }
+  }, [history]);
+
   const editFormStyles: any = {
     visibility: update && 'visible'
   }
 
-  useEffect(() => {
-    if(!verifyToken(localStorage.getItem('authToken'))) {
-      history.push('/')
-    }
-  }, [history]);
-
   const editTask = async (task: {task: string}) => {
-    
     try {
       const updated = TaskDataService.updateTask(update._id, task);
       const getAll = TaskDataService.getAll().then(res => setAddTasks(res.data));
