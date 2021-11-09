@@ -20,7 +20,7 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinU
     } else {
       history.push('/');
     }
-  }, [setAddTasks, setSignedinUser]);
+  }, [setAddTasks, setSignedinUser, history]);
 
   
 

@@ -2,12 +2,15 @@ import React from 'react';
 import { LogOut } from '../LogOut';
 import './Nav.css'
 
-export const Nav: React.FC<any> = ({ setAuthMesgs, signedinUser }) => {
+export const Nav: React.FC<any> = ({ setAuthMesgs, signedinUser, setSignedinUser }) => {
   return (
     <nav>
-      <h1>Codify</h1>
-      <LogOut setAuthMesgs={setAuthMesgs} />
-      <p>Hello {signedinUser}</p>
+      <h1 className="nav-logo" >Codify</h1>
+      {signedinUser && ( <div className="nav-rightside" >
+        <p>Hello {signedinUser}</p>
+        <LogOut setAuthMesgs={setAuthMesgs} setSignedinUser={setSignedinUser} />       
+      </div>
+      )}
     </nav>
   )
 }

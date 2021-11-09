@@ -22,7 +22,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        <Nav setAuthMesgs={setAuthMesgs} signedinUser={signedinUser} />
+        <Nav setAuthMesgs={setAuthMesgs} signedinUser={signedinUser} setSignedinUser={setSignedinUser} />
         <Switch>
           <Route path ='/' exact >
             <SignIn authMesgs={authMesgs} setAuthMesgs={setAuthMesgs} />

@@ -3,6 +3,7 @@ import './SignIn.css';
 import { useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService'
 import { AuthEnums } from '../../utils/AuthEnums';
+import Button from '@mui/material/Button';
 
 export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
   const [username, setUsername] = useState("");
@@ -52,8 +53,8 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
           id ='password' 
           onChange={setInput(setPassword)}
         ></input>
-        <button type='submit'>Sign in</button>
-        <button onClick={signUp}>Sign up</button>
+        <Button variant='contained' type='submit'>Sign in</Button>
+        <Button variant='contained' onClick={signUp}>Sign up</Button>
       </form>    
       <p style={authMsgStyles}>{authMesgs}</p>  
     </div>
