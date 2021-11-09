@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TaskDataService from '../../services/TaskService';
 import Button from '@mui/material/Button';
 import { DeleteTask } from '../../components/DeleteTask';
@@ -6,22 +6,16 @@ import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
-//import verifyToken from '../../utils/verifyToken';
-//import styled, { keyframes } from 'styled-components'
 
 interface keyValuePair {
   _id: string, 
   task: string,
 }
 
-export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) => {
+export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setSignedinUser }) => {
   const [update, setUpdate] = useState<keyValuePair>({_id: '', task: ''});
 
   const history = useHistory();
-
-  // useEffect(() => {
-  //   !verifyToken(localStorage.getItem('authToken')) && history.push('/');
-  // }, [history]);
 
   const editFormStyles: any = {
     visibility: update && 'visible'
@@ -50,7 +44,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs }) =>
 
   return (
     <>
-    <AddTask setAddTasks={setAddTasks} setAuthMesgs={setAuthMesgs} />
+    <AddTask setAddTasks={setAddTasks} setAuthMesgs={setAuthMesgs} setSignedinUser={setSignedinUser} />
     <div className ='tasks-container'>
       {addTasks.map((task: keyValuePair, key: number) => {
         // returns an edit form if the user clicks on an edit button

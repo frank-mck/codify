@@ -10,6 +10,7 @@ import { AuthEnums } from './utils/AuthEnums';
 const App: React.FC = () => {
   const [addTasks, setAddTasks] = useState<any>([]);
   const [authMesgs, setAuthMesgs] = useState<any>("");
+  const [signedinUser, setSignedinUser] = useState<string>('');
 
   setTimeout(() => { setAuthMesgs("") }, 10000);
 
@@ -21,7 +22,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        <Nav setAuthMesgs={setAuthMesgs} />
+        <Nav setAuthMesgs={setAuthMesgs} signedinUser={signedinUser} />
         <Switch>
           <Route path ='/' exact >
             <SignIn authMesgs={authMesgs} setAuthMesgs={setAuthMesgs} />
@@ -30,7 +31,7 @@ const App: React.FC = () => {
             <SignUp setAuthMesgs={setAuthMesgs} />
           </Route>
           <Route path='/tasks' >
-            <Tasks setAddTasks={setAddTasks} addTasks={addTasks} setAuthMesgs={setAuthMesgs} />   
+            <Tasks setAddTasks={setAddTasks} addTasks={addTasks} setAuthMesgs={setAuthMesgs} setSignedinUser={setSignedinUser} />   
           </Route>       
         </Switch>
       </div>
