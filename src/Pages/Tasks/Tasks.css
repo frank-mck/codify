@@ -24,6 +24,7 @@
   justify-content: space-between;
   min-width: 445px;
   margin: .8rem 0;
+  height: 50px;
   padding: 0 3rem;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
@@ -43,15 +44,14 @@
   padding: 1rem;
   border: none;
   width: 220px;
-  height: 40px;
+  height: 37px;
   border-radius: 5px;
-}
-
-.delete-btn {
-  cursor: pointer;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.425), 1px 1px 3px 0 rgba(0, 0, 0, 0.205);
 }
 
 .task-buttons {
   display: flex;
+  width: 5rem;
   align-items: center;
+  justify-content: space-between;
 }

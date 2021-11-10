@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService';
 import { AuthEnums } from '../../utils/AuthEnums';
+import Button from '@mui/material/Button';
+import '../SignIn/SignIn.css';
 
 export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
   const [username, setUsername] = useState('');
@@ -33,37 +35,43 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
   }
 
   return (
-    <div className='sign-up-container'>
-      <h1>Sign Up</h1>
-      <form className='sign-up-form' onSubmit={handleSignUpForm}>
-        <label htmlFor='email' />Email
-        <input
-          required
-          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-          value={email}
-          onChange={setInput(setEmail)}
+    <div className='signup-page'>
+      <div className='sign-up-container'>
+        <h1>Sign Up</h1>
+        <form className='sign-up-form' onSubmit={handleSignUpForm}>
+          <label htmlFor='email' />Email
+          <input
+            required
+            placeholder='Enter email...'
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+            value={email}
+            onChange={setInput(setEmail)}
+            />
+          <label htmlFor='username' />Username
+          <input 
+            required
+            placeholder='Enter username...'
+            type ='text' 
+            value={username}
+            id='username' 
+            onChange={setInput(setUsername)} 
           />
-        <label htmlFor='username' />Username
-        <input 
-          required
-          type ='text' 
-          value={username}
-          id='username' 
-          onChange={setInput(setUsername)} 
-        />
-        <label htmlFor='password' />Password
-        <input
-          required 
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
-          type ='password' 
-          value={password}
-          id ='password' 
-          onChange={setInput(setPassword)}
-         />
-        <button type='submit'>Sign up</button>
-      </form>   
-      <p style={{color: 'red'}}>{error}</p>
+          <label htmlFor='password' />Password
+          <input
+            required 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+            type ='password' 
+            placeholder='Enter password...'
+            value={password}
+            id ='password' 
+            onChange={setInput(setPassword)}
+          />
+          <Button style={{marginTop: '1rem'}} variant='contained' type='submit'>Sign up</Button>
+          <Button onClick={() => history.push('/') } style={{marginTop: '4px'}} variant='outlined' type='submit'>Sign in</Button>
+        </form>   
+        <p style={{color: 'red'}}>{error}</p>
+      </div>
     </div>
   )
 }
