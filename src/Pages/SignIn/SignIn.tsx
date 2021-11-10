@@ -37,27 +37,32 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
 
   return (
     <div className='signin-page'>
+      <div className ='signin-headline-background'>
+        <h2 className='signin-headline'>
+          Sort, organize and keep track of your most important tasks.
+        </h2>
+      </div>
       <div className ='sign-in-container'>
-        <h1>Sign in</h1>
+        <h1 className='signin-title'>Sign in</h1>
         <form className='sign-in-form' onSubmit={logIn}>
           <label htmlFor='username' />Username
           <input 
+            className='signin-input'
             type ='text' 
-            placeholder='Enter username...'
             required
             id='username' 
             onChange={setInput(setUsername)}
           ></input> 
           <label htmlFor='password' />Password
           <input 
+            className='signin-input'
             type ='password' 
-            placeholder='Enter password...'
             required
             id ='password' 
             onChange={setInput(setPassword)}
           ></input>
-          <Button style={{marginTop: '1rem'}} variant='contained' type='submit'>Sign in</Button>
-          <Button style={{marginTop: '4px'}} variant='outlined' onClick={signUp}>Sign up</Button>
+          <Button style={{marginTop: '1rem', width: '7rem'}} variant='contained' type='submit'>Sign in</Button>
+          <Button style={{marginTop: '4px', width: '7rem'}} variant='outlined' onClick={signUp}>Sign up</Button>
         </form>    
         <p style={authMsgStyles}>{authMesgs}</p>  
       </div>

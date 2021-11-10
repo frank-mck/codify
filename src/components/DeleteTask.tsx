@@ -25,11 +25,10 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
   }
 
   return (
-    <IconButton aria-label="delete">
+    <IconButton aria-label="delete" onClick={() => deleteTask()}>
       <DeleteIcon 
         className='delete-btn'
         color="error" 
-        onClick={() => deleteTask()}
       >Delete</DeleteIcon> 
     </IconButton>
   )
