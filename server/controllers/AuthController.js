@@ -6,7 +6,7 @@ const AuthController = {
   getAllUsers: async (req, res) => {
     const users = await User.find({})
     try {
-      res.send(users, req.username);
+      res.send(users);
     } catch(err) {
       console.log(err)
     }

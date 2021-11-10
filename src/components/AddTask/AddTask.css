@@ -14,9 +14,8 @@
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  border: 1px solid rgb(240, 240, 240);
-  height: 80px;
-  width: 430px;
+  height: 65px;
+  width: 400px;
   background-color: rgb(41, 145, 122);
   border-radius: 50px;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 2px 2px 5px 0 rgba(0, 0, 0, 0.205);
@@ -34,7 +33,7 @@
   width: 220px;
   height: 40px;
   border-radius: 5px;
-  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.425), 1px 1px 3px 0 rgba(0, 0, 0, 0.205);
 }
 
 .add-task-form-btn, .task-btn {

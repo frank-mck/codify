@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import TaskDataService from '../../services/TaskService';
 import Button from '@mui/material/Button';
-import { DeleteTask } from '../../components/DeleteTask';
+import { DeleteTask, } from '../../components/DeleteTask';
 import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
 
-interface keyValuePair {
+type keyValuePair = {
   _id: string, 
   task: string,
 }
@@ -77,9 +77,9 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
               taskId={task._id} 
             />
             <Button
-            variant='contained'
-             onClick={() => toggleUpdate(task._id, task.task)}
-             style={{margin: '10px', backgroundColor: 'rgb(0, 252, 201)', color: 'black'}}
+              variant='contained'    
+              onClick={() => toggleUpdate(task._id, task.task)}
+              style={{margin: '10px', backgroundColor: 'rgb(0, 252, 201)', color: 'black'}}
               >Edit</Button>
             </div>
           </div>)

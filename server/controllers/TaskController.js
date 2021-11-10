@@ -11,8 +11,12 @@ TaskController = {
        user: user._id })
        .populate('user')
        .sort({ createdAt: "desc" });
-      try { 
-        res.send(result);
+      try {
+        if (result.length > 0) {
+          res.send(result);
+        } else {
+          res.send([{user: {username: user.username }}]);
+        }
       } catch(err) {
         console.log(err)
       }
@@ -22,6 +26,7 @@ TaskController = {
     const taskText = req.body.task;
     const user = await User.findOne(TaskController.user);
     const task = await new Task({task: taskText, user: user._id }).populate('user');
+    Promise.all([user, task]);
     try {
       await task.save();
       res.end();
@@ -41,9 +46,10 @@ TaskController = {
   },
 
   apiEditTask: async (req, res) => {
-      const editTask = await Task.findOneAndUpdate({_id: req.params.id}, {
-        task: req.body.task
-      });
+      const editTask = await Task.findOneAndUpdate(
+        {_id: req.params.id},
+        {task: req.body.task}
+      );
       try {
         res.send(editTask);
       } catch(err) {

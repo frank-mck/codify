@@ -1,7 +1,8 @@
 import TaskDataService from '../services/TaskService';
 import React from 'react';
-import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useHistory } from 'react-router-dom';
+import IconButton from '@material-ui/core/IconButton';
 
 export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAuthMesgs }) => {
 
@@ -24,11 +25,12 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
   }
 
   return (
-    <Button 
-      variant="contained" 
-      color="error" 
-      onClick={() => deleteTask()}
-      style={{margin: '10px'}}
-    >Delete</Button> 
+    <IconButton aria-label="delete">
+      <DeleteIcon 
+        className='delete-btn'
+        color="error" 
+        onClick={() => deleteTask()}
+      >Delete</DeleteIcon> 
+    </IconButton>
   )
 }

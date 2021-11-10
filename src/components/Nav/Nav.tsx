@@ -7,7 +7,7 @@ export const Nav: React.FC<any> = ({ setAuthMesgs, signedinUser, setSignedinUser
     <nav>
       <h1 className="nav-logo" >Codify</h1>
       {signedinUser && ( <div className="nav-rightside" >
-        <p>Hello {signedinUser}</p>
+        <p>{signedinUser}</p>
         <LogOut setAuthMesgs={setAuthMesgs} setSignedinUser={setSignedinUser} />       
       </div>
       )}

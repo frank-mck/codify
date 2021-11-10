@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthEnums } from '../utils/AuthEnums';
+import Button from '@mui/material/Button';
 
 export const LogOut: React.FC<any> = ({ setAuthMesgs, setSignedinUser }) => {
 
@@ -17,7 +18,12 @@ export const LogOut: React.FC<any> = ({ setAuthMesgs, setSignedinUser }) => {
 
   return (
     <div>
-      <button onClick={signOut}>Log Out</button>
+      <Button
+        variant='outlined'
+        size='small' 
+        onClick={signOut}
+        >Log Out
+      </Button>
     </div>
   )
 }

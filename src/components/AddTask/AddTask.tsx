@@ -13,8 +13,8 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinU
     if (localStorage.getItem("authToken")) {
       const getAllTasks = async () => {
         const tasks = await TaskDataService.getAll();
-        setAddTasks(tasks.data);
-        setSignedinUser(tasks.data[0].user.username)
+        await setSignedinUser(tasks.data[0].user.username);
+        tasks.data[0].task && await setAddTasks(tasks.data);
       }
       getAllTasks();
     } else {
