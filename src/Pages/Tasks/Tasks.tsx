@@ -75,7 +75,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
               size="small"
               variant='contained'    
               onClick={() => toggleUpdate(task._id, task.task)}
-              style={{color: 'rgb(216, 216, 216)'}}
+              style={{color: 'rgb(216, 216, 216)', backgroundColor: 'rgb(0,50,80)'}}
               >Edit</Button>
             <DeleteTask 
               setAuthMesgs={setAuthMesgs}

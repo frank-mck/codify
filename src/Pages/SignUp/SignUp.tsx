@@ -25,7 +25,7 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
       history.push('/');
     } catch(err: any) {
       setError(err.response.data.error);
-      setTimeout(() => { setError("") }, 4000);
+      setTimeout(() => { setError("") }, 10000);
     }
   }
 
@@ -79,7 +79,7 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
             type='submit'
           >Sign in</Button>
         </form>   
-        <p style={{color: 'red'}}>{error}</p>
+        <p className='auth-mesgs'>{error}</p>
       </div>
     </div>
   )

@@ -17,7 +17,7 @@
   margin-top: 2rem;
   height: 65px;
   width: 400px;
-  background-color: rgb(41, 145, 122);
+  background-color: rgb(216, 216, 216);
   border-radius: 50px;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 2px 2px 5px 0 rgba(0, 0, 0, 0.205);
 }
@@ -33,6 +33,7 @@
   border: none;
   width: 220px;
   height: 37px;
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.425), 1px 1px 3px 0 rgba(0, 0, 0, 0.205);
 }

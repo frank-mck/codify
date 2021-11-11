@@ -8,7 +8,8 @@
   min-width: 445px;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-  background-color: rgb(41, 145, 122);
+  background-color: rgb(216, 216, 216);
+  color: black;
   margin: .8rem 0;
   display: flex;
   padding: 0 3rem;
@@ -28,7 +29,7 @@
   padding: 0 3rem;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-  background-color: rgb(41, 145, 122);
+  background-color: rgb(216, 216, 216);
   visibility: hidden;
   animation: flip .2s ease-in-out 1;
 }

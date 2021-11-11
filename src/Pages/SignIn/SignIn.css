@@ -8,17 +8,20 @@
 }
 
 .sign-in-container, .sign-up-container {
-  height: 450px;
-  width: 350px;
+  height: 28rem;
+  width: 21rem;
+  text-align: center;
   display: flex;
   margin-top: 2rem;
   background-color: rgb(0,50,80);
   border-radius: 15px;
+  position: relative;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color:rgb(216, 216, 216);
   box-shadow: 
+    0px 0px 0 1px rgb(216, 216, 216),
     1px 1px 0 1px rgb(216, 216, 216),
     2px 2px 0 2px rgb(0,50,80),
     3px 3px 0 3px rgb(216, 216, 216), 
@@ -28,10 +31,21 @@
     7px 7px 0 7px rgb(216, 216, 216),
     8px 8px 0 8px rgb(0,50,80),
     9px 9px 0 9px rgb(216, 216, 216),
-    0px 0px 0 1px rgb(216, 216, 216),
     10px 10px 10px 6px rgba(0, 0, 0, 0.199),
     11px 11px 8px 7px rgba(0, 0, 0, 0.106),
     12px 12px 8px 12px rgba(0, 0, 0, 0.29);
+    animation: move-in .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    overflow: visible;
+}
+
+@keyframes move-in {
+  from { 
+    margin-bottom: -150px;
+    opacity: 0;
+  } to { 
+    opacity: 1;
+    margin-left: 0px;
+  }
 }
 
 .signin-headline-background { 
@@ -39,13 +53,15 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 40px;
-  left: -300px;
-  height: 155px;
+  top: -80px;
+  left: -170px;
+  z-index: 200;
+  height: 142px;
   color:rgb(0,50,80);
   background-color:rgb(216, 216, 216);
   border-radius: 100px;
-  width: 370px;
+  width: 350px;
+  animation: move-in .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .signin-headline {
@@ -55,11 +71,12 @@
 }
 
 .signin-title, .signup-title {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .sign-in-form, .sign-up-form {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
@@ -79,3 +96,9 @@
   justify-content: flex-end
 }
 
+.auth-mesgs { 
+  position: absolute;
+  font-size: .7rem;
+  bottom: 108px;
+  color: rgb(252, 45, 45);
+}

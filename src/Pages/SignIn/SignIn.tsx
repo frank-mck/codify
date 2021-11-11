@@ -10,8 +10,13 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
   const [password, setPassword] = useState("");
 
   const authMsgStyles: any = {
-    color: (authMesgs === AuthEnums.successSignup && 'green') || (authMesgs === AuthEnums.signout && 'green') ||
-    (authMesgs === AuthEnums.invalidCredentials && 'red') || (authMesgs === AuthEnums.unorthorized && 'red')
+    color: (authMesgs === AuthEnums.successSignup && 'rgb(36, 167, 91)') || 
+    (authMesgs === AuthEnums.signout && 'rgb(36, 167, 91)') ||
+    (authMesgs === AuthEnums.invalidCredentials && 'rgb(252, 45, 45)') || 
+    (authMesgs === AuthEnums.unorthorized && 'rgb(252, 45, 45)'),
+    position: 'absolute',
+    bottom: '132px',
+    fontSize: '.7rem'
   }
 
   const history = useHistory();
@@ -37,12 +42,12 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
 
   return (
     <div className='signin-page'>
+      <div className ='sign-in-container'>
       <div className ='signin-headline-background'>
         <h2 className='signin-headline'>
           Sort, organize and keep track of your most important tasks.
         </h2>
       </div>
-      <div className ='sign-in-container'>
         <h1 className='signin-title'>Sign in</h1>
         <form className='sign-in-form' onSubmit={logIn}>
           <label htmlFor='username' />Username
@@ -63,9 +68,9 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
           ></input>
           <Button style={{marginTop: '1rem', width: '7rem'}} variant='contained' type='submit'>Sign in</Button>
           <Button style={{marginTop: '4px', width: '7rem'}} variant='outlined' onClick={signUp}>Sign up</Button>
-        </form>    
-        <p style={authMsgStyles}>{authMesgs}</p>  
-      </div>
+        </form>   
+        <p style={authMsgStyles}>{authMesgs}</p> 
+      </div> 
     </div>
   )
 }
