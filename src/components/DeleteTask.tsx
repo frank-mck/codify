@@ -20,8 +20,14 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
       setAuthMesgs(err.response.data.error);
       history.push('/');
     }
-    const data = addTasks.filter((task: keyValuePair) => task._id !== taskId);
-    setAddTasks([...data]);
+    const el: any = document.getElementById(taskId);
+    el.classList.add('fade-out-task');
+    setTimeout(() => { 
+      el.classList.remove('fade-out-task')
+      const data = addTasks.filter((task: keyValuePair) => task._id !== taskId);
+      setAddTasks([...data]);
+    }, 300)
+   
   }
 
   return (

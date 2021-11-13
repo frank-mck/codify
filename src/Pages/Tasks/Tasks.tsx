@@ -61,7 +61,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
               variant='contained'
               type='submit'
               size="small"
-              style={{color: 'rgb(216, 216, 216)'}}
+              style={{color: 'rgb(216, 216, 216)', backgroundColor: '#1d4774'}}
               onClickCapture={() => editTask({task: update.task})}>
               Update
             </Button>
@@ -73,9 +73,9 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
             <div className='task-buttons'>
             <Button
               size="small"
-              variant='contained'    
+              variant='outlined'    
               onClick={() => toggleUpdate(task._id, task.task)}
-              style={{color: 'rgb(216, 216, 216)', backgroundColor: 'rgb(0,50,80)'}}
+              style={{borderRadius: '50px'}}
               >Edit</Button>
             <DeleteTask 
               setAuthMesgs={setAuthMesgs}

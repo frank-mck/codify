@@ -4,7 +4,8 @@ nav {
   align-items: center;
   height: 50px;
   width: 100%;
-  background-color: rgb(0,50,80);
+  background-color: #10273f;
+  border-bottom: 1px solid #1d4774;
   
 }
 
@@ -13,8 +14,8 @@ nav {
   align-items: center;
   justify-content: space-evenly;
   min-width: 180px;
-  padding: 1rem;
-  border-left: 3px solid #0A1929;
+  padding: 0 1rem;
+  border-left: 2px solid #1d4774;
 }
 
 .nav-logo { 

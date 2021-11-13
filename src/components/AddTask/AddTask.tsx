@@ -55,7 +55,7 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinU
           data-testid='add-task-form-btn'
           type ='submit'
           value ='Add'
-          style={{color: 'rgb(216, 216, 216)', backgroundColor: 'rgb(0,50,80)', marginLeft: '1rem'}}
+          style={{color: 'rgb(216, 216, 216)', backgroundColor: '#1d4774', marginLeft: '1rem'}}
          >Add</Button>
       </form>
     </div>
