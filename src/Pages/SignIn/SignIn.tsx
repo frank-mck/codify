@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './SignIn.css';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService'
 import { AuthEnums } from '../../utils/AuthEnums';
 import Button from '@mui/material/Button';
@@ -15,7 +15,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
     (authMesgs === AuthEnums.invalidCredentials && 'rgb(252, 45, 45)') || 
     (authMesgs === AuthEnums.unorthorized && 'rgb(252, 45, 45)'),
     position: 'absolute',
-    bottom: '132px',
+    bottom: '182px',
     fontSize: '.7rem'
   }
 
@@ -35,11 +35,6 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
     }
   }
 
-  const signUp = (event: any) => {
-    event.preventDefault();
-    history.push('/signup');
-  }
-
   return (
     <div className='signin-page'>
       <div className ='sign-in-container'>
@@ -48,7 +43,10 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
           Sort, organize and keep track of your most important tasks.
         </h2>
       </div>
+      <div className='signin-bar'>
         <h1 className='signin-title'>Sign in</h1>
+        <span style={{marginRight: '-24px'}}>or</span><Link className='signup-link' to ='/signup'>create an account</Link>
+      </div>
         <form className='sign-in-form' onSubmit={logIn}>
           <label htmlFor='username' />Username
           <input 
@@ -67,10 +65,9 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
             onChange={setInput(setPassword)}
           ></input>
           <Button style={{marginTop: '1rem', width: '7rem'}} variant='contained' type='submit'>Sign in</Button>
-          <Button style={{marginTop: '4px', width: '7rem'}} variant='outlined' onClick={signUp}>Sign up</Button>
         </form>   
-        <p style={authMsgStyles}>{authMesgs}</p> 
       </div> 
+      <p style={authMsgStyles}>{authMesgs}</p> 
     </div>
   )
 }

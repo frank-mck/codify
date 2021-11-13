@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService';
 import { AuthEnums } from '../../utils/AuthEnums';
 import Button from '@mui/material/Button';
@@ -72,12 +72,10 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
             variant='contained' 
             type='submit'
           >Sign up</Button>
-          <Button
-            onClick={() => history.push('/') } 
-            style={{marginTop: '4px', width: '7rem'}} 
-            variant='outlined' 
-            type='submit'
-          >Sign in</Button>
+          <div className ='signin-link-container'>
+            <p style={{fontSize: '.7rem', marginRight: '6px'}}>Already have an account?</p>
+            <Link to='/' className='signin-link'>Sign in</Link>
+          </div>
         </form>   
         <p className='auth-mesgs'>{error}</p>
       </div>
