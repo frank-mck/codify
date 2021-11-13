@@ -13,6 +13,19 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
 
   const history = useHistory();
 
+  const handleFadeout = () => {
+    // Add a class name to the item being removed for a fade out effect
+    const el: HTMLElement | any = document.getElementById(taskId);
+    el.classList.add('fade-out-task');
+
+    setTimeout(() => { 
+      // Remove class name
+      el.classList.remove('fade-out-task');
+      const data = addTasks.filter((task: keyValuePair) => task._id !== taskId);
+      setAddTasks([...data]);
+    }, 300);
+  }
+
   const deleteTask = async () => {
     try {
       await TaskDataService.deleteTask(taskId);
@@ -20,14 +33,8 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
       setAuthMesgs(err.response.data.error);
       history.push('/');
     }
-    const el: any = document.getElementById(taskId);
-    el.classList.add('fade-out-task');
-    setTimeout(() => { 
-      el.classList.remove('fade-out-task')
-      const data = addTasks.filter((task: keyValuePair) => task._id !== taskId);
-      setAddTasks([...data]);
-    }, 300)
-   
+    
+    handleFadeout();
   }
 
   return (
@@ -35,7 +42,8 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
       <DeleteIcon 
         className='delete-btn'
         color="error" 
-      >Delete</DeleteIcon> 
+        >Delete
+      </DeleteIcon> 
     </IconButton>
   )
 }
