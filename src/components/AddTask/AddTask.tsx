@@ -58,6 +58,11 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinU
           style={{color: 'rgb(216, 216, 216)', backgroundColor: '#1d4774', marginLeft: '1rem'}}
          >Add</Button>
       </form>
+      <div className='tasks-completed'>
+        <div className='star-container'><img className ='star' src ='https://cdn-icons-png.flaticon.com/512/1828/1828970.png' /><p>0</p></div>
+        
+        <Button style={{color: 'white', fontSize: '.8rem'}} size='small' variant='outlined'>Favorites</Button>
+      </div>
     </div>
   )
 }

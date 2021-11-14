@@ -9,7 +9,7 @@
 
 .sign-in-container, .sign-up-container {
   height: 30rem;
-  width: 23.5rem;
+  width: 22.5rem;
   text-align: center;
   display: flex;
   margin-top: 2rem;
@@ -29,8 +29,6 @@
     5px 5px 0 5px rgb(216, 216, 216),
     6px 6px 0 6px #1d4774,
     7px 7px 0 7px rgb(216, 216, 216),
-    8px 8px 0 8px #1d4774,
-    9px 9px 0 9px rgb(216, 216, 216),
     10px 10px 10px 6px rgba(0, 0, 0, 0.199),
     11px 11px 8px 7px rgba(0, 0, 0, 0.106),
     12px 12px 8px 12px rgba(0, 0, 0, 0.29);
@@ -135,3 +133,4 @@
   bottom: 340px;
   color: rgb(252, 45, 45);
 }
+
