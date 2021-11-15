@@ -6,6 +6,7 @@ import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
+import { Checkbox } from '../../components/Checkbox';
 
 type keyValuePair = {
   _id: string, 
@@ -41,12 +42,6 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
 
   const toggleUpdate = (id: string, task: string) => {
     setUpdate({_id: id, task: task});
-  }
-
-  const setTaskDone = async (request: boolean, task: any) => {
-    await TaskDataService.completeTask(task._id, request);
-    TaskDataService.getAll().then(res => setAddTasks(res.data));
-  
   }
 
   return (
@@ -91,15 +86,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
               setAddTasks={setAddTasks} 
               taskId={task._id} 
             />
-            <div className ='task-checkbox'>
-             <form>
-               {task.complete ? (
-                 <input type ='checkbox' checked={task.complete} onChange={() => setTaskDone(false, task)}></input>
-               ) : (
-                 <input type ='checkbox' checked={task.complete} onChange={() => setTaskDone(true, task)}></input>
-               )}
-             </form>
-            </div>
+            <Checkbox setAddTasks={setAddTasks} task={task} />
             </div>
           </div>)
         }
