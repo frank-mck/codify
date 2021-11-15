@@ -2,7 +2,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: 3.2rem;
   width: 100%;
   background-color: #10273f;
   border-bottom: 1px solid #1d4774;
@@ -13,7 +13,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  min-width: 180px;
+  min-width: 11.2rem;
   padding: 0 1rem;
   border-left: 2px solid #1d4774;
 }

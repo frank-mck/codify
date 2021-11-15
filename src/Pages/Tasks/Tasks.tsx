@@ -61,7 +61,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
               variant='contained'
               type='submit'
               size="small"
-              style={{color: 'rgb(216, 216, 216)', backgroundColor: '#1d4774'}}
+              style={{color: 'rgb(216, 216, 216)', backgroundColor: '#1d4774', marginRight: '.4rem'}}
               onClickCapture={() => editTask({task: update.task})}>
               Update
             </Button>

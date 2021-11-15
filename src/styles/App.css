@@ -8,3 +8,22 @@ body {
   letter-spacing: 0.4mm;
 }
 
+@media (max-width: 668px) {
+  html { 
+    font-size: 14px;
+  }
+
+  .signin-headline-background {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 368px) {
+  html { 
+    font-size: 12px;
+  }
+
+  .signin-headline-background {
+    visibility: hidden;
+  }
+}
