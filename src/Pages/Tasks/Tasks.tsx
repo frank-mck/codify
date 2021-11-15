@@ -6,7 +6,7 @@ import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
 import './Tasks.css'
 import '../../components/AddTask/AddTask.css'
-import { Checkbox } from '../../components/Checkbox';
+import { Checkbox } from '../../components/Checkbox/Checkbox';
 
 type keyValuePair = {
   _id: string, 

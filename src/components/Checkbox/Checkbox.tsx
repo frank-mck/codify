@@ -1,5 +1,6 @@
 import React from 'react'
-import TaskDataService from '../services/TaskService'
+import './Checkbox.css'
+import TaskDataService from '../../services/TaskService'
 
 export const Checkbox: React.FC<any> = ({ setAddTasks, task}) => {
 
@@ -12,9 +13,9 @@ export const Checkbox: React.FC<any> = ({ setAddTasks, task}) => {
     <div className ='task-checkbox'>
     <form>
       {task.complete ? (
-        <input type ='checkbox' checked={task.complete} onChange={() => setTaskDone(false, task)}></input>
+        <input className='checkbox' type ='checkbox' checked={task.complete} onChange={() => setTaskDone(false, task)}></input>
       ) : (
-        <input type ='checkbox' checked={task.complete} onChange={() => setTaskDone(true, task)}></input>
+        <input className='checkbox' type ='checkbox' checked={task.complete} onChange={() => setTaskDone(true, task)}></input>
       )}
     </form>
    </div>

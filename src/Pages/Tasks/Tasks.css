@@ -10,12 +10,13 @@
   color: rgb(216, 216, 216);
   margin: .2rem 0;
   display: flex;
-  padding: 0 3rem;
+  padding: 0 2.5rem;
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
   border-bottom: 1px solid #1d4774;
   border-top: 1px solid #1d4774;
+  transform-style: preserve-3d;
   animation: flip .3s ease-in-out 1;
 }
 
@@ -26,7 +27,7 @@
   color: rgb(216, 216, 216);
   margin: .2rem 0;
   display: flex;
-  padding: 0 3rem;
+  padding: 0 2.5rem;
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
@@ -42,10 +43,11 @@
   margin: .2rem 0;
   height: 3.1rem;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
-  padding: 1.6rem 3rem;
+  padding: 1.6rem 2.5rem;
   background-color: #10273f;
   visibility: hidden;
   animation: flip .3s ease-in-out 1;
+  transform-style: preserve-3d;
   border-bottom: 1px solid #1d4774;
   border-top: 1px solid #1d4774;
   position: relative;
@@ -76,7 +78,7 @@
 .task-buttons {
   display: flex;
   width: 5rem;
-  margin:  0 1rem;
+  margin-right: 2.5rem;
   align-items: center;
   justify-content: space-between;
 }
