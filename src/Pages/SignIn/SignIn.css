@@ -104,6 +104,9 @@
   font-size: .7rem;
   text-decoration: none;
   position: relative;
+  display: flex;
+
+  justify-content: space-between;
 }
 
 .signup-link::after, .signin-link::before {

@@ -20,8 +20,8 @@ class TaskDataService {
     return response;
   }
 
-  async getById(id :string) {
-    return await http.instance(this.url).get(`/${id}`)
+  async completeTask(id :string, complete: boolean) {
+    return await http.instance(this.url).put(`/done/${id}`, {complete: complete})
   }
 }
 

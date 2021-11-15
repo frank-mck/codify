@@ -10,10 +10,11 @@ import '../../components/AddTask/AddTask.css'
 type keyValuePair = {
   _id: string, 
   task: string,
+  complete: boolean
 }
 
 export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setSignedinUser }) => {
-  const [update, setUpdate] = useState<keyValuePair>({_id: '', task: ''});
+  const [update, setUpdate] = useState<any>({});
 
   const history = useHistory();
 
@@ -42,6 +43,12 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
     setUpdate({_id: id, task: task});
   }
 
+  const setTaskDone = async (request: boolean, task: any) => {
+    await TaskDataService.completeTask(task._id, request);
+    TaskDataService.getAll().then(res => setAddTasks(res.data));
+  
+  }
+
   return (
     <>
     <AddTask setAddTasks={setAddTasks} setAuthMesgs={setAuthMesgs} setSignedinUser={setSignedinUser} />
@@ -61,7 +68,8 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
               variant='contained'
               type='submit'
               size="small"
-              style={{color: 'rgb(216, 216, 216)', backgroundColor: '#1d4774', marginRight: '.4rem'}}
+              className='btn'
+              style={{color: 'rgb(216, 216, 216)', backgroundColor: '#1d4774', marginRight: '1.7rem'}}
               onClickCapture={() => editTask({task: update.task})}>
               Update
             </Button>
@@ -83,6 +91,15 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
               setAddTasks={setAddTasks} 
               taskId={task._id} 
             />
+            <div className ='task-checkbox'>
+             <form>
+               {task.complete ? (
+                 <input type ='checkbox' checked={task.complete} onChange={() => setTaskDone(false, task)}></input>
+               ) : (
+                 <input type ='checkbox' checked={task.complete} onChange={() => setTaskDone(true, task)}></input>
+               )}
+             </form>
+            </div>
             </div>
           </div>)
         }

@@ -8,7 +8,7 @@ body {
   letter-spacing: 0.4mm;
 }
 
-@media (max-width: 668px) {
+@media  only screen and (max-width: 668px) and (min-width: 568px) {
   html { 
     font-size: 14px;
   }
@@ -18,12 +18,25 @@ body {
   }
 }
 
-@media (max-width: 368px) {
+@media  only screen and (max-width: 368px) and (min-width: 280px) {
   html { 
-    font-size: 12px;
+    font-size: 10.7px;
   }
 
   .signin-headline-background {
     visibility: hidden;
   }
+  
+}
+
+
+@media  only screen and (max-width: 568px) and (min-width: 368px) {
+  html { 
+    font-size: 12.8px;
+  }
+
+  .signin-headline-background {
+    visibility: hidden;
+  }
+
 }

@@ -57,10 +57,13 @@ TaskController = {
       }
   },
 
-  apiFindTask: async (req, res) => {
-    const task = await Task.findById(req.params.id);
+  apiCompleteTask: async (req, res) => {
+    const completedTask = await Task.findOneAndUpdate(
+      {_id: req.params.id},
+      {complete: req.body.complete}
+    );
     try {
-      res.send(task);
+      res.send(completedTask);
     } catch(err) {
       console.log(err)
     }

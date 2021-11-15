@@ -45,7 +45,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
       </div>
       <div className='signin-bar'>
         <h1 className='signin-title'>Sign in</h1>
-        <span style={{marginRight: '-24px'}}>or</span><Link className='signup-link' to ='/signup'>create an account</Link>
+        <p style={{marginRight: '-24px'}}>or</p><Link style={{marginLeft: '.4rem'}} className='signup-link' to ='/signup'>create an account</Link>
       </div>
         <form className='sign-in-form' onSubmit={logIn}>
           <label htmlFor='username' />Username

@@ -12,6 +12,6 @@ router.route('/tasks/edit/:id').put(protect, TaskCtrl.apiEditTask)
 
 router.route('/tasks/delete/:id').delete(protect, TaskCtrl.apiDeleteTask);
 
-router.route('/tasks/:id').get(TaskCtrl.apiFindTask);
+router.route('/tasks/done/:id').put(protect, TaskCtrl.apiCompleteTask);
 
 module.exports = router
