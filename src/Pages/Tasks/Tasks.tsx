@@ -5,6 +5,7 @@ import { DeleteTask, } from '../../components/DeleteTask';
 import { AddTask } from '../../components/AddTask/AddTask';
 import { useHistory } from 'react-router-dom';
 import './Tasks.css'
+import '../../styles/App.css'
 import '../../components/AddTask/AddTask.css'
 import { Checkbox } from '../../components/Checkbox/Checkbox';
 
@@ -73,20 +74,23 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
           return (
           <div key={key} id={task._id} className='task' >
             <p>{task.task}</p> 
-            <div className='task-buttons'>
-            <Button
-              size="small"
-              variant='outlined'    
-              onClick={() => toggleUpdate(task._id, task.task)}
-              style={{borderRadius: '50px'}}
-              >Edit</Button>
-            <DeleteTask 
-              setAuthMesgs={setAuthMesgs}
-              addTasks={addTasks} 
-              setAddTasks={setAddTasks} 
-              taskId={task._id} 
-            />
-            <Checkbox setAddTasks={setAddTasks} task={task} />
+            <div>
+              <div className='task-buttons'>
+                <Button
+                  size="small"
+                  variant='outlined'    
+                  onClick={() => toggleUpdate(task._id, task.task)}
+                  style={{borderRadius: '50px'}}
+                  >Edit</Button>
+                <DeleteTask 
+                  setAuthMesgs={setAuthMesgs}
+                  addTasks={addTasks} 
+                  setAddTasks={setAddTasks} 
+                  taskId={task._id} 
+                />
+                <Checkbox setAddTasks={setAddTasks} task={task} />
+              </div>
+              
             </div>
           </div>)
         }

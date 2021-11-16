@@ -10,13 +10,12 @@
   color: rgb(216, 216, 216);
   margin: .2rem 0;
   display: flex;
-  padding: 0 2.5rem;
+  padding: 0 1.5rem;
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
   border-bottom: 1px solid #1d4774;
   border-top: 1px solid #1d4774;
-  transform-style: preserve-3d;
   animation: flip .3s ease-in-out 1;
 }
 
@@ -77,8 +76,9 @@
 
 .task-buttons {
   display: flex;
-  width: 5rem;
-  margin-right: 2.5rem;
+  width: 9rem;
   align-items: center;
   justify-content: space-between;
+  margin-right: 1rem;
+  
 }
