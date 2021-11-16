@@ -3,7 +3,7 @@ import axios from 'axios';
 class Http {
   instance(url: string) {
     return axios.create({ 
-      baseURL: `${process.env.REACT_APP_SERVER}${url}`,
+      baseURL: `https://codify-tasks-server.herokuapp.com/api/v1${url}`,
       headers: {
       "Content-type": "application/json",
       Authorization: `Bearer ${localStorage.getItem('authToken')}`
