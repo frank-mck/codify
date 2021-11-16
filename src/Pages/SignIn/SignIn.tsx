@@ -13,10 +13,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
     color: (authMesgs === AuthEnums.successSignup && 'rgb(36, 167, 91)') || 
     (authMesgs === AuthEnums.signout && 'rgb(36, 167, 91)') ||
     (authMesgs === AuthEnums.invalidCredentials && 'rgb(252, 45, 45)') || 
-    (authMesgs === AuthEnums.unorthorized && 'rgb(252, 45, 45)'),
-    position: 'absolute',
-    bottom: '182px',
-    fontSize: '.7rem'
+    (authMesgs === AuthEnums.unorthorized && 'rgb(252, 45, 45)')
   }
 
   const history = useHistory();
@@ -40,7 +37,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
       <div className ='sign-in-container'>
       <div className ='signin-headline-background'>
         <h2 className='signin-headline'>
-          Sort, organize and keep track of your most important tasks.
+          Sort, organize and keep track of your most important <span style={{color: '#fdfd96'}}>tasks</span>.
         </h2>
       </div>
       <div className='signin-bar'>
@@ -65,9 +62,10 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
             onChange={setInput(setPassword)}
           ></input>
           <Button style={{marginTop: '1rem', width: '7rem'}} variant='contained' type='submit'>Sign in</Button>
-        </form>   
+        </form>  
+        <p className='signout-mesgs' style={authMsgStyles}>{authMesgs}</p> 
       </div> 
-      <p style={authMsgStyles}>{authMesgs}</p> 
+       
     </div>
   )
 }

@@ -4,7 +4,7 @@
 
 .App {
   text-align: center;
-  color:rgb(216, 216, 216);
+  color:rgb(236, 236, 236);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -39,14 +39,14 @@
   border: none;
   width: 18.5rem;
   height: 2.2rem;
-  background-color: rgb(216, 216, 216);
+  background-color: rgb(236, 236, 236);
   border-radius: 5px;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.425), 1px 1px 3px 0 rgba(0, 0, 0, 0.205);
 }
 
 .add-task-form-btn, .task-btn {
   margin: 0 1rem;
-  color: rgb(216, 216, 216);
+  color: rgb(236, 236, 236);
 }
 
 .tasks-completed {

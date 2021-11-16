@@ -19,7 +19,7 @@ export const Checkbox: React.FC<any> = ({ setAddTasks, task}) => {
         </p>
       ) : (
         <p className ='task-checkbox'>
-          <input className='checkbox' id={task._id} type ='checkbox' checked={task.complete} onChange={() => setTaskDone(true, task)}></input>
+          <input className='checkbox' id={task._id} type ='checkbox' checked={false} onChange={() => setTaskDone(true, task)}></input>
           <label htmlFor={task._id}></label>
         </p>
       )}

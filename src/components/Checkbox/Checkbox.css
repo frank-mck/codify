@@ -30,11 +30,11 @@
 [type="checkbox"]:checked + label:after {
   content: '✔';
   position: absolute;
-  top: .025em;
-  left: -1.125em;
+  top: .0105em;
+  left: -1.225em;
   font-size: 1.315em;
   z-index: 1;
-  color: #b5cfeb;
+  color: #ffffff;
   line-height: 0;
   -webkit-transition: all .2s;
       transition: all .3s;

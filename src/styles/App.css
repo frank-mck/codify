@@ -13,9 +13,6 @@ body {
     font-size: 14px;
   }
 
-  .signin-headline-background {
-    visibility: hidden;
-  }
 
 }
 
@@ -24,9 +21,7 @@ body {
     font-size: 10.7px;
   }
 
-  .signin-headline-background {
-    visibility: hidden;
-  }
+ 
   
 }
 
@@ -36,8 +31,6 @@ body {
     font-size: 12.8px;
   }
 
-  .signin-headline-background {
-    visibility: hidden;
-  }
+ 
 
 }
