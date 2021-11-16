@@ -5,8 +5,9 @@ import TaskDataService from '../../services/TaskService'
 export const Checkbox: React.FC<any> = ({ setAddTasks, task}) => {
 
   const setTaskDone = async (request: boolean, task: any) => {
-    await TaskDataService.completeTask(task._id, request);
-    TaskDataService.getAll().then(res => setAddTasks(res.data));
+    const taskComplete = await TaskDataService.completeTask(task._id, request);
+    const getTasks = TaskDataService.getAll().then(res => setAddTasks(res.data));
+    await Promise.all([taskComplete, getTasks])
   }
 
   return (
