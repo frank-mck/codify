@@ -43,6 +43,7 @@ const AuthController = {
       } 
     } catch (error) {
       console.log(error)
+      return next(new ErrorResponse("Server error!", 500))
     }
   },
 

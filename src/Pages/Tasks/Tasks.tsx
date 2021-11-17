@@ -17,6 +17,7 @@ type keyValuePair = {
 
 export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setSignedinUser }) => {
   const [update, setUpdate] = useState<any>({});
+  const [completedTasks, setCompletedTasks] = useState<any>(null);
 
   const history = useHistory();
 
@@ -47,7 +48,14 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
 
   return (
     <>
-    <AddTask setAddTasks={setAddTasks} setAuthMesgs={setAuthMesgs} setSignedinUser={setSignedinUser} />
+    <AddTask
+      setAddTasks={setAddTasks} 
+      addTasks={addTasks} 
+      setAuthMesgs={setAuthMesgs}
+      setSignedinUser={setSignedinUser}
+      setCompletedTasks={setCompletedTasks}
+      completedTasks={completedTasks}
+       />
     <div className ='tasks-container'>
       {addTasks.map((task: keyValuePair, key: number) => {
         // returns an edit form if the user clicks on an edit button
@@ -88,7 +96,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
                   setAddTasks={setAddTasks} 
                   taskId={task._id} 
                 />
-                <Checkbox setAddTasks={setAddTasks} task={task} />
+                <Checkbox setCompletedTasks={setCompletedTasks} setAddTasks={setAddTasks} task={task} />
               </div>
               
             </div>

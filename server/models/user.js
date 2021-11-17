@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Task'
   },
+  completedTasks: {
+    type: Number
+  },
   resetPasswordToken: String,
   resetPasswordExpire: Date,
 });

@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import TaskDataService from '../../services/TaskService';
 import { useHistory } from 'react-router-dom';
 
-export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinUser }) => {
+export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinUser, setCompletedTasks, completedTasks }) => {
   const [task, setTask] = useState<string>('');
 
   const history = useHistory();
@@ -13,6 +13,7 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinU
     if (localStorage.getItem("authToken")) {
       const getAllTasks = async () => {
         const tasks = await TaskDataService.getAll();
+        setCompletedTasks(tasks.data[0].user.completedTasks);
         await setSignedinUser(tasks.data[0].user.username);
         tasks.data[0].task && await setAddTasks(tasks.data);
       }
@@ -21,8 +22,6 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinU
       history.push('/');
     }
   }, [setAddTasks, setSignedinUser, history]);
-
-  
 
   const addTask: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -61,9 +60,8 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinU
       </form>
       <div className='tasks-completed-container'>
         <div className='tick-container'>
-          <p className='tasks-completed'>0</p>
+          <p className='tasks-completed'>{completedTasks}</p>
         </div>
-        
         <Button style={{color: 'white', fontSize: '.8rem'}} size='small' variant='outlined'>Favourites</Button>
       </div>
     </div>

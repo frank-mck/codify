@@ -10,8 +10,9 @@ class AuthDataService {
 
   async loginUser(user: any) {
     const {data}: any = await http.instance(this.url).post('/signin', user);
-    localStorage.setItem('authToken', await data.token);
-    const verification = verifyToken(await data.token);
+    localStorage.setItem('authToken', data.token);
+    const verification = verifyToken(data.token);
+    console.log(verification)
     return verification;
   }
 }

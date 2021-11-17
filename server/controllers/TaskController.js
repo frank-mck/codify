@@ -15,7 +15,7 @@ TaskController = {
         if (result.length > 0) {
           res.send(result);
         } else {
-          res.send([{user: {username: user.username }}]);
+          res.send([{user: {username: user.username, completedTasks: user.completedTasks }}]);
         }
       } catch(err) {
         console.log(err)
@@ -62,6 +62,20 @@ TaskController = {
       {_id: req.params.id},
       {complete: req.body.complete}
     );
+    const digit = () => {
+      let num = req.user.completedTasks
+      if (req.body.complete) {
+        num += 1;
+        return num;
+      } else {
+        num -= 1;
+        return num;
+      }
+    }
+    const addCompletedTask = await User.findOneAndUpdate(
+      {_id: TaskController.user._id},
+      {completedTasks: digit()})
+      Promise.all([addCompletedTask, completedTask])
     try {
       res.send(completedTask);
     } catch(err) {
