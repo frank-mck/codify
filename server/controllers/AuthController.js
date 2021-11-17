@@ -18,7 +18,7 @@ const AuthController = {
     const hashedPassword = await bcrypt.hash(password, salt);
     try {
       const user = await User.create({ 
-        username: username, email: email, password: hashedPassword
+        username: username, email: email, password: hashedPassword, completedTasks: 0
       });
       sendToken(user, 201, res);
     } catch (error) {
