@@ -5,6 +5,7 @@ This is an on-going solo project built to consolidate what I had learnt at Maker
 ## Description 
 
 A productivity website that helps users organise their tasks.
+Deployed here: https://codify-tasks.netlify.app/
 
 ## Tech stack
 
