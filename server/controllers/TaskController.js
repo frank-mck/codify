@@ -6,20 +6,20 @@ TaskController = {
 
   apiGetTasks: async (req, res, next) => {
     const user = await User.findOne(req.user);
-    TaskController.user = user
     const result = await Task.find({
-       user: user._id })
-       .populate('user')
-       .sort({ createdAt: "desc" });
-      try {
-        if (result.length > 0) {
-          res.send(result);
-        } else {
-          res.send([{user: {username: user.username, completedTasks: user.completedTasks }}]);
-        }
-      } catch(err) {
-        console.log(err)
+      user: user._id })
+      .populate('user')
+      .sort({ createdAt: "desc" });
+    TaskController.user = user;
+    try {
+      if (result.length > 0) {
+        res.send(result);
+      } else {
+        res.send([{user: {username: user.username, completedTasks: user.completedTasks }}]);
       }
+    } catch(err) {
+      console.log(err)
+    }
   },
 
   apiPostTask: async (req, res) => {
@@ -72,10 +72,10 @@ TaskController = {
         return num;
       }
     }
-    const addCompletedTask = await User.findOneAndUpdate(
+    await User.findOneAndUpdate(
       {_id: TaskController.user._id},
       {completedTasks: digit()})
-      Promise.all([addCompletedTask, completedTask])
+   
     try {
       res.send(completedTask);
     } catch(err) {

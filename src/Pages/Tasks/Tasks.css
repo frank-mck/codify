@@ -16,7 +16,7 @@
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
   border-bottom: 1px solid #1d4774;
   border-top: 1px solid #1d4774;
-  animation: flip .3s ease-in-out 1;
+  animation: flip .2s ease-in-out 1;
   line-break: break-all;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .fade-out-task {
-  animation: fadeout .3s linear forwards;
+  animation: fadeout .2s linear forwards;
   min-width: 28rem;
   background-color: #10273f;
   color: rgb(236, 236, 236);
@@ -53,7 +53,7 @@
   padding: 1.6rem 0;
   background-color: #10273f;
   visibility: hidden;
-  animation: flip .3s ease-in-out 1;
+  animation: flip .2s ease-in-out 1;
   transform-style: preserve-3d;
   border-bottom: 1px solid #1d4774;
   border-top: 1px solid #1d4774;

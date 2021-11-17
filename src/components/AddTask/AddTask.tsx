@@ -21,7 +21,7 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinU
     } else {
       history.push('/');
     }
-  }, [setAddTasks, setSignedinUser, history]);
+  }, [setAddTasks, setSignedinUser, history, setCompletedTasks]);
 
   const addTask: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
