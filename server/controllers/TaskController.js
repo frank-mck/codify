@@ -74,7 +74,7 @@ TaskController = {
     }
     await User.findOneAndUpdate(
       {_id: TaskController.user._id},
-      {completedTasks: digit()})
+      {completedTasks: digit()});
    
     try {
       res.send(completedTask);
