@@ -65,7 +65,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
               type='submit'
               size="small"
               className='btn'
-              style={{color: 'rgb(216, 216, 216)', backgroundColor: '#1d4774', marginRight: '1.7rem'}}
+              style={{color: 'rgb(216, 216, 216)', marginRight: '1.7rem'}}
               onClickCapture={() => editTask({task: update.task})}>
               Update
             </Button>
@@ -73,7 +73,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
         } else {
           return (
           <div key={key} id={task._id} className='task' >
-            <p>{task.task}</p> 
+            <p className='task-text'>{task.task}</p> 
             <div>
               <div className='task-buttons'>
                 <Button

@@ -3,11 +3,12 @@ import './SignIn.css';
 import { Link, useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService'
 import { AuthEnums } from '../../utils/AuthEnums';
-import Button from '@mui/material/Button';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const authMsgStyles: any = {
     color: (authMesgs === AuthEnums.successSignup && 'rgb(36, 167, 91)') || 
@@ -23,12 +24,15 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
   }
 
   const logIn = async (event: any) => {
+    setLoading(true);
     event.preventDefault();
     try { 
       await Auth.loginUser({username: username, password: password});
+      setLoading(false);
       history.push('/tasks');
     } catch (err: any) {
       setAuthMesgs(err.response.data.error);
+      setLoading(false);
     }
   }
 
@@ -60,8 +64,13 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
             required
             id ='password' 
             onChange={setInput(setPassword)}
-          ></input>
-          <Button style={{marginTop: '1rem', width: '7rem'}} variant='contained' type='submit'>Sign in</Button>
+          ></input>          
+          <LoadingButton
+            loading={loading} 
+            style={{marginTop: '1rem', width: '100%', backgroundColor: 'yellow', color: `${!loading ? 'black' : 'yellow'}`}}
+            variant='contained'
+            type='submit'
+          >Sign in</LoadingButton>
         </form>  
         <p className='signout-mesgs' style={authMsgStyles}>{authMesgs}</p> 
       </div> 

@@ -49,22 +49,30 @@
   color: rgb(236, 236, 236);
 }
 
-.tasks-completed {
+.tasks-completed-container {
   width: 76%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  position: relative;
 }
 
-.star {
+
+.tasks-completed::after {
+  content: '✔';
+  color: yellow;
+  margin-left: .1rem;
+}
+
+.tick {
   width: 1.5rem;
   height: 1.5rem;
   padding: .2rem;
   margin: .2rem;
 }
 
-.star-container { 
+.tick-container { 
   display: flex;
   width: 2.5rem;
   height: 1.8rem;

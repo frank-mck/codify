@@ -19,9 +19,10 @@ export const LogOut: React.FC<any> = ({ setAuthMesgs, setSignedinUser }) => {
   return (
     <div>
       <Button
-        variant='outlined'
+        variant='contained'
         size='small' 
         onClick={signOut}
+        style={{backgroundColor: 'yellow', color:'black', fontSize: '.6rem' }}
         >Log Out
       </Button>
     </div>

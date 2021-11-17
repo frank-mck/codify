@@ -4,8 +4,8 @@ nav {
   align-items: center;
   height: 3.2rem;
   width: 100%;
-  background-color: #10273f;
-  border-bottom: 1px solid #1d4774;
+  
+ 
 }
 
 .nav-rightside { 
@@ -14,7 +14,7 @@ nav {
   justify-content: space-evenly;
   min-width: 11.2rem;
   padding: 0 1rem;
-  border-left: 2px solid #1d4774;
+  
 }
 
 .nav-logo { 
@@ -24,4 +24,5 @@ nav {
 
 .username {
   margin-right: .5rem;
+  font-size: 1.1rem;
 }

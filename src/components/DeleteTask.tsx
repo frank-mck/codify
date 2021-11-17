@@ -41,7 +41,7 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
     <IconButton aria-label="delete" onClick={() => deleteTask()}>
       <DeleteIcon 
         className='delete-btn'
-        color="error" 
+        color="primary" 
         >Delete
       </DeleteIcon> 
     </IconButton>

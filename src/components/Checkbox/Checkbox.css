@@ -8,8 +8,8 @@
 .checkbox {
   appearance: none;
   background-color: white;
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border: 1px solid #1d4774;
   background: transparent;
   border-radius: .2em;
@@ -30,11 +30,11 @@
 [type="checkbox"]:checked + label:after {
   content: '✔';
   position: absolute;
-  top: .0105em;
-  left: -1.225em;
-  font-size: 1.315em;
+  top: .0375em;
+  left: -1.215em;
+  font-size: 1.495em;
   z-index: 1;
-  color: #ffffff;
+  color: yellow;
   line-height: 0;
   -webkit-transition: all .2s;
       transition: all .3s;
@@ -54,5 +54,5 @@
 /* Accessibility */
 [type="checkbox"]:checked:focus,
 [type="checkbox"]:not(:checked):focus {
-  box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 2px #1d4774;
+  box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 3px #214872;
 }

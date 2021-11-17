@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Auth from '../../services/AuthService';
 import { AuthEnums } from '../../utils/AuthEnums';
-import Button from '@mui/material/Button';
 import '../SignIn/SignIn.css';
+import { LoadingButton } from '@mui/lab';
 
 export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState<any>('');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [error, setError] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const history = useHistory();
 
@@ -18,13 +19,16 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
   }
 
   const addUser = async () => {
+    setLoading(true);
     try {
       const {data}: any = await Auth.createUser({username, password, email});
       localStorage.setItem('token', data.token);
       setAuthMesgs(AuthEnums.successSignup);
+      setLoading(false);
       history.push('/');
     } catch(err: any) {
       setError(err.response.data.error);
+      setLoading(false);
       setTimeout(() => { setError("") }, 10000);
     }
   }
@@ -67,11 +71,12 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
             id ='password' 
             onChange={setInput(setPassword)}
           />
-          <Button 
-            style={{marginTop: '1rem', width: '7rem'}} 
+          <LoadingButton
+            loading={loading} 
+            style={{marginTop: '1rem', width: '100%', backgroundColor: 'yellow', color: `${!loading ? 'black' : 'yellow'}` }}
             variant='contained' 
             type='submit'
-          >Sign up</Button>
+          >Sign up</LoadingButton>
           <div className ='signin-link-container'>
             <p style={{fontSize: '.7rem', marginRight: '6px'}}>Already have an account?</p>
             <Link to='/' className='signin-link'>Sign in</Link>

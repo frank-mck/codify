@@ -51,15 +51,18 @@ export const AddTask: React.FC<any> = ({ setAddTasks, setAuthMesgs, setSignedinU
         </input>
         <Button
           variant="contained"
+          color='primary'
           className='add-task-form-btn'
           data-testid='add-task-form-btn'
           type ='submit'
           value ='Add'
-          style={{color: 'rgb(216, 216, 216)', backgroundColor: '#1d4774', marginLeft: '1rem'}}
+          style={{color: 'rgb(216, 216, 216)', marginLeft: '1rem'}}
          >Add</Button>
       </form>
-      <div className='tasks-completed'>
-        <div className='star-container'><img className ='star' alt='star' src ='https://cdn-icons-png.flaticon.com/512/1828/1828970.png' /><p>0</p></div>
+      <div className='tasks-completed-container'>
+        <div className='tick-container'>
+          <p className='tasks-completed'>0</p>
+        </div>
         
         <Button style={{color: 'white', fontSize: '.8rem'}} size='small' variant='outlined'>Favourites</Button>
       </div>
