@@ -6,12 +6,11 @@
   flex-direction: column;
   position: relative;
   padding: 2rem;
-  overflow: hidden;
 }
 
 .sign-in-container, .sign-up-container {
-  max-height: 33rem;
-  width: 24.5rem;
+  max-height: 34.5rem;
+  width: 25rem;
   text-align: center;
   display: flex;
   background-color: #10273f;
@@ -34,11 +33,11 @@
 
 @keyframes move-in {
   from { 
-    margin-bottom: -150px;
+    margin-left: -100px;
     opacity: 0;
   } to { 
     opacity: 1;
-    margin-left: 0px;
+    margin-left: 0;
   }
 }
 
@@ -49,7 +48,7 @@
   align-items: center;
   position: relative;
   z-index: 200;
-  height: 6rem;
+  height: 5.8rem;
   color:rgb(238, 238, 238);
   border-top: 1px solid #1d4774;
   border-bottom: 1px solid #1d4774;
@@ -67,7 +66,6 @@
   border-bottom: 1px solid #1d4774;
   width: 21.5rem;
   height: 6rem;
-  animation: move-in .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform: skewY(3deg);
 }
 
