@@ -1,7 +1,12 @@
+.tasks-page {
+  height: 100%;
+}
+
 .tasks-container {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 .task {
@@ -14,8 +19,8 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
-  border-bottom: 1px solid #1d4774;
-  border-top: 1px solid #1d4774;
+  border-bottom: 1px solid #2765a8;
+  border-top: 1px solid #2765a8;
   animation: flip .2s ease-in-out 1;
   line-break: break-all;
 }
@@ -38,8 +43,8 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
-  border-bottom: 1px solid #1d4774;
-  border-top: 1px solid #1d4774;
+  border-bottom: 1px solid #2765a8;
+  border-top: 1px solid #2765a8;
 }
 
 .edit-task-form {
@@ -55,8 +60,8 @@
   visibility: hidden;
   animation: flip .2s ease-in-out 1;
   transform-style: preserve-3d;
-  border-bottom: 1px solid #1d4774;
-  border-top: 1px solid #1d4774;
+  border-bottom: 1px solid #2765a8;
+  border-top: 1px solid #2765a8;
   position: relative;
 }
 

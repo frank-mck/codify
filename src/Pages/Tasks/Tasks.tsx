@@ -46,7 +46,7 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
   }
 
   return (
-    <>
+    <div className='tasks-page'>
     <AddTask
       setAddTasks={setAddTasks} 
       addTasks={addTasks} 
@@ -103,6 +103,6 @@ export const Tasks: React.FC<any> = ({ setAddTasks, addTasks, setAuthMesgs, setS
         }
       })}
     </div>
-    </>
+    </div>
   )
 }

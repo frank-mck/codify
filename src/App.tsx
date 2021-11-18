@@ -6,6 +6,7 @@ import { SignIn } from './Pages/SignIn/SignIn';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { SignUp } from './Pages/SignUp/SignUp';
 import { AuthEnums } from './utils/AuthEnums';
+import { Footer } from './components/Footer/Footer';
 
 const App: React.FC = () => {
   const [addTasks, setAddTasks] = useState<any>([]);
@@ -34,8 +35,11 @@ const App: React.FC = () => {
             <Tasks setAddTasks={setAddTasks} addTasks={addTasks} setAuthMesgs={setAuthMesgs} setSignedinUser={setSignedinUser} />   
           </Route>       
         </Switch>
+        
       </div>
+      <Footer />
     </Router>
+    
   );
 } 
 

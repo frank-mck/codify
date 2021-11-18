@@ -8,6 +8,16 @@ body {
   letter-spacing: 0.4mm;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+}
+
 @media only screen and (max-width: 668px) and (min-width: 568px) {
   html { 
     font-size: 14px;
