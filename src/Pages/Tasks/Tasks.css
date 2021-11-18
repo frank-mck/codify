@@ -5,7 +5,7 @@
 }
 
 .task {
-  min-width: 28rem;
+  min-width: 29rem;
   background-color: #10273f;
   color: rgb(236, 236, 236);
   margin: .2rem 0;
@@ -29,7 +29,7 @@
 
 .fade-out-task {
   animation: fadeout .2s linear forwards;
-  min-width: 28rem;
+  min-width: 29rem;
   background-color: #10273f;
   color: rgb(236, 236, 236);
   margin: .2rem 0;
@@ -46,7 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  min-width: 28rem;
+  min-width: 29rem;
   margin: .2rem 0;
   height: 3.1rem;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);

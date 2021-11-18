@@ -72,7 +72,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
             type='submit'
           >Sign in</LoadingButton>
         </form>  
-        <p className='signout-mesgs' style={authMsgStyles}>{authMesgs}</p> 
+        <div className='signout-mesgs'><p style={authMsgStyles}>{authMesgs}</p></div> 
       </div> 
        
     </div>

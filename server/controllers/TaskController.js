@@ -79,7 +79,7 @@ TaskController = {
     try {
       res.send(completedTask);
     } catch(err) {
-      console.log(err)
+      console.log(err);
     }
   }
 }

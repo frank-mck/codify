@@ -40,6 +40,7 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
   return (
     <IconButton aria-label="delete" onClick={() => deleteTask()}>
       <DeleteIcon 
+      style={{color: '#d23232'}}
         className='delete-btn'
         color="primary" 
         >Delete

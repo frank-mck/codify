@@ -1,19 +1,21 @@
 .signin-page, .signup-page {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 3.2rem);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
   position: relative;
+  padding: 2rem;
+  overflow: hidden;
 }
 
 .sign-in-container, .sign-up-container {
-  height: 35rem;
-  width: 25.5rem;
+  max-height: 33rem;
+  width: 24.5rem;
   text-align: center;
   display: flex;
   background-color: #10273f;
-  border-radius: 15px;
+  border-radius: 10px;
   position: relative;
   justify-content: flex-start;
   align-items: center;
@@ -25,8 +27,9 @@
     3px 3px 3px 3px rgba(0, 0, 0, 0.233),
     4px 4px 4px 4px rgba(0, 0, 0, 0.199),
     5px 5px 5px 4px rgba(0, 0, 0, 0.11);
-    animation: move-in .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: move-in .4s cubic-bezier(0.215, 0.610, 0.355, 1);
     overflow: visible;
+    margin-bottom: 2rem;
 }
 
 @keyframes move-in {
@@ -51,7 +54,7 @@
   border-top: 1px solid #1d4774;
   border-bottom: 1px solid #1d4774;
   font-size: .8rem;
-  width: 21rem;
+  width: 20rem;
 }
 
 .signin-headline-background::after {
@@ -69,7 +72,7 @@
 }
 
 .signin-headline {
-  width: 20.8rem;
+  width: 19.8rem;
   word-break: break-word;
   font-weight: 1000;
 }
@@ -119,7 +122,6 @@
   text-decoration: none;
   position: relative;
   display: flex;
-
   justify-content: space-between;
 }
 
@@ -140,15 +142,13 @@
   width: 18.3rem;
 }
 
-.auth-mesgs { 
-  position: absolute;
-  font-size: .7rem;
-  bottom: 30px;
-  color: rgb(252, 45, 45);
+.signout-mesgs {
+  height: 50px;
+  margin-bottom: 1rem;
 }
 
-.signout-mesgs {
-  position: absolute;
-  font-size: .7rem;
-  bottom: 30px;
+.auth-mesgs {
+  color: red;
+  height: 50px;
+  margin-bottom: 1rem;
 }

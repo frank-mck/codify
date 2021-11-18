@@ -64,7 +64,7 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
           <input
             required 
             className='signup-input'
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+            pattern="(?=.*\d)(?=.*[a-z]).{6,}"
             title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
             type ='password'
             value={password}
@@ -82,7 +82,7 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
             <Link to='/' className='signin-link'>Sign in</Link>
           </div>
         </form>   
-        <p className='auth-mesgs'>{error}</p>
+        <div className='auth-mesgs'><p>{error}</p></div>
       </div>
     </div>
   )
