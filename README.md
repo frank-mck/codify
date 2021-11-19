@@ -1,6 +1,6 @@
 # Codify
 
-This is an on-going solo project built to consolidate what I had learnt at Makers Academy, learn new technologies and to keep my skills fresh while job hunting. 
+This is an ongoing solo project built to consolidate what I had learnt at Makers Academy, learn new technologies and to keep my skills fresh while job hunting. 
 
 ## Description 
 
