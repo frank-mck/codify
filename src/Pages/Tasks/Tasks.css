@@ -19,8 +19,8 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
-  border-bottom: 1px solid #2765a8;
-  border-top: 1px solid #2765a8;
+  border-bottom: 1px solid #14467c;
+  border-top: 1px solid #14467c;
   animation: flip .2s ease-in-out 1;
   line-break: break-all;
 }
@@ -43,8 +43,8 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.425), 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
-  border-bottom: 1px solid #2765a8;
-  border-top: 1px solid #2765a8;
+  border-bottom: 1px solid #14467c;
+  border-top: 1px solid #14467c;
 }
 
 .edit-task-form {
@@ -60,8 +60,8 @@
   visibility: hidden;
   animation: flip .2s ease-in-out 1;
   transform-style: preserve-3d;
-  border-bottom: 1px solid #2765a8;
-  border-top: 1px solid #2765a8;
+  border-bottom: 1px solid #14467c;
+  border-top: 1px solid #14467c;
   position: relative;
 }
 

@@ -21,7 +21,7 @@
   flex-direction: column;
   color:rgb(236, 236, 236);
   box-shadow: 
-    0px 0px 0 1px #2765a8,
+    0px 0px 0 1px #14467c,
     2px 2px 2px rgba(0, 0, 0, 0.555),
     3px 3px 3px 3px rgba(0, 0, 0, 0.233),
     4px 4px 4px 4px rgba(0, 0, 0, 0.199),
@@ -50,8 +50,8 @@
   z-index: 200;
   height: 5.8rem;
   color:rgb(238, 238, 238);
-  border-top: 1px solid #2765a8;
-  border-bottom: 1px solid #2765a8;
+  border-top: 1px solid #14467c;
+  border-bottom: 1px solid #14467c;
   font-size: .8rem;
   width: 20rem;
 }
@@ -62,8 +62,8 @@
   left: -14px;
   top: .1rem;
   font-size: .8rem;
-  border-top: 1px solid #2765a8;
-  border-bottom: 1px solid #2765a8;
+  border-top: 1px solid #14467c;
+  border-bottom: 1px solid #14467c;
   width: 21.5rem;
   height: 6rem;
   transform: skewY(3deg);
