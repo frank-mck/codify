@@ -5,16 +5,16 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  padding: 2rem;
+  padding: 1.8rem;
 }
 
 .sign-in-container, .sign-up-container {
-  max-height: 34.5rem;
-  width: 25rem;
+  max-height: 30.5rem;
+  width: 21rem;
   text-align: center;
   display: flex;
   background-color: #10273f;
-  border-radius: 10px;
+  border-radius: 6px;
   position: relative;
   justify-content: flex-start;
   align-items: center;
@@ -48,39 +48,42 @@
   align-items: center;
   position: relative;
   z-index: 200;
-  height: 5.8rem;
+  height: 4.2rem;
   color:rgb(238, 238, 238);
   border-top: 1px solid #14467c;
   border-bottom: 1px solid #14467c;
-  font-size: .8rem;
-  width: 20rem;
+  font-size: .7rem;
+  width: 18rem;
 }
 
 .signin-headline-background::after {
   content: '';
   position: absolute;
-  left: -14px;
+  left: -1px;
   top: .1rem;
-  font-size: .8rem;
+  font-size: .7rem;
   border-top: 1px solid #14467c;
   border-bottom: 1px solid #14467c;
-  width: 21.5rem;
-  height: 6rem;
+  width: 18rem;
+  height: 4rem;
   transform: skewY(3deg);
 }
 
 .signin-headline {
-  width: 19.8rem;
+  width: 18.8rem;
   word-break: break-word;
   font-weight: 1000;
+  
 }
 
 .signin-title {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
+  font-size: 1.6rem;
 }
 
 .signup-title {
-  margin-top: 5rem;
+  margin-top: 3rem;
+  font-size: 2.2rem;
 }
 
 .sign-in-form, .sign-up-form {
@@ -88,30 +91,31 @@
   position: relative;
   flex-direction: column;
   align-items: flex-start;
-  min-height: 15rem;
+  min-height: 13.5rem;
 }
 
 .signin-link-container {
   display: flex;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: .8rem;
   justify-content: center;
   align-items: center;
 }
 
 .signup-input, .signin-input {
   border: none;
-  padding: .6rem;
+  padding: .5rem;
   background-color: rgb(236, 236, 236);
-  border-radius: 5px;
-  width: 18.3rem;
-  margin-top: .2rem;
+  border-radius: 3px;
+  width: 16.3rem;
+  margin-top: .1rem;
 }
 
 .signup-form label, label { 
   display: flex;
   justify-content: flex-end;
-  margin: .5rem 0;
+  margin-top: .5rem;
+  font-size: .9rem;
 }
 
 .signup-link, .signin-link { 
@@ -137,16 +141,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 18.3rem;
+  width: 16.3rem;
 }
 
 .signout-mesgs {
   height: 50px;
-  margin-bottom: 1rem;
+  margin-bottom: .7rem;
+  font-size: .9rem;
 }
 
 .auth-mesgs {
   color: red;
   height: 50px;
-  margin-bottom: 1rem;
+  margin-bottom: .7rem;
+  font-size: .9rem;
 }

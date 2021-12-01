@@ -43,7 +43,7 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
       <div className='sign-up-container'>
         <h1 className='signup-title'>Sign Up</h1>
         <form className='sign-up-form' onSubmit={handleSignUpForm}>
-          <label htmlFor='email' />Email
+          <label htmlFor='email'>Email</label>
           <input
             className='signup-input'
             required
@@ -51,7 +51,7 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
             value={email}
             onChange={setInput(setEmail)}
             />
-          <label htmlFor='username' />Username
+          <label htmlFor='username'>Username</label>
           <input 
             className='signup-input'
             required
@@ -60,7 +60,7 @@ export const SignUp: React.FC<any> = ({ setAuthMesgs }) => {
             id='username' 
             onChange={setInput(setUsername)} 
           />
-          <label htmlFor='password' />Password
+          <label htmlFor='password'>Password</label>
           <input
             required 
             className='signup-input'

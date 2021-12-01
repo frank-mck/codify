@@ -9,7 +9,7 @@ export const Footer = () => {
         <p>
           Designed & developed by 
           <a href='https://github.com/frank-mck'
-           style={{textDecoration: 'none', color: 'black'}}
+           style={{textDecoration: 'none', color: 'rgb(177, 177, 177)'}}
            > Frank Mckenna</a>
         </p>
         <a href='https://github.com/frank-mck/productivity-app-ts'><img 

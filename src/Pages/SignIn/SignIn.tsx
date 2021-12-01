@@ -46,10 +46,10 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
       </div>
       <div className='signin-bar'>
         <h1 className='signin-title'>Sign in</h1>
-        <p style={{marginRight: '-24px'}}>or</p><Link style={{marginLeft: '.4rem'}} className='signup-link' to ='/signup'>create an account</Link>
+        <p style={{marginRight: '-20px'}}>or</p><Link style={{marginLeft: '.4rem'}} className='signup-link' to ='/signup'>create an account</Link>
       </div>
         <form className='sign-in-form' onSubmit={logIn}>
-          <label htmlFor='username' />Username
+          <label htmlFor='username' >Username</label>
           <input 
             className='signin-input'
             type ='text' 
@@ -57,7 +57,7 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
             id='username' 
             onChange={setInput(setUsername)}
           ></input> 
-          <label htmlFor='password' />Password
+          <label htmlFor='password'>Password</label>
           <input 
             className='signin-input'
             type ='password' 
