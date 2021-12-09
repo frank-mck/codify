@@ -54,6 +54,8 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
             className='signin-input'
             type ='text' 
             required
+            name='username'
+            autoComplete="on"
             id='username' 
             onChange={setInput(setUsername)}
           ></input> 
@@ -61,6 +63,8 @@ export const SignIn: React.FC<any> = ({ authMesgs, setAuthMesgs }) => {
           <input 
             className='signin-input'
             type ='password' 
+            name='password'
+            autoComplete="on"
             required
             id ='password' 
             onChange={setInput(setPassword)}

@@ -30,7 +30,7 @@
 [type="checkbox"]:checked + label:after {
   content: '✔';
   position: absolute;
-  top: .0375em;
+  top: -.2rem;
   left: -1.215em;
   font-size: 1.495em;
   z-index: 1;
