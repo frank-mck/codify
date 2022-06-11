@@ -29,7 +29,6 @@ Deployed here: https://codify-tasks.netlify.app/
 - Testing - Jest, React-testing-library
 - CSS
 - UI/UX Design
-- MVC Methodology
 
 Users will be authenticated using JSON web tokens that get sent to the API endpoints in the headers. `Authorization: Bearer [token]`.
 
@@ -72,6 +71,7 @@ In the root folder create a .env file and store the following:
 
 ```
 REACT_APP_JWT_SECRET=your_secret_key
+REACT_APP_SERVER = '/api/v1'
 ```
 
 You can create a secret key but typing the following in the terminal:
