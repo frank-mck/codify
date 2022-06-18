@@ -71,7 +71,7 @@ In the root folder create a .env file and store the following:
 
 ```
 REACT_APP_JWT_SECRET=your_secret_key
-REACT_APP_SERVER = http://localhost:3002/api/v1/
+REACT_APP_SERVER = http://localhost:3002/api/v1
 ```
 
 You can create a secret key but typing the following in the terminal:
