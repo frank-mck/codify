@@ -71,7 +71,7 @@ In the root folder create a .env file and store the following:
 
 ```
 REACT_APP_JWT_SECRET=your_secret_key
-REACT_APP_SERVER = '/api/v1'
+REACT_APP_SERVER = http://localhost:3002/api/v1
 ```
 
 You can create a secret key but typing the following in the terminal:
@@ -85,7 +85,7 @@ Cd into the server folder and create another .env file and store the following:
 ```
 DATABASE = 'mongodb://localhost/name-of-your-database'
 TEST_DATABASE='mongodb://localhost/name-of-your-test-database'
-PORT = your_port
+PORT = 3002
 TASK_COLLECTION = task
 USER_COLLECTION = user
 
