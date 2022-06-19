@@ -5,9 +5,9 @@ const { protect } = require('../middleware/auth');
 
 router.route('/users').get(protect, AuthCtrl.getAllUsers)
 
-router.route('/signup').post(protect, AuthCtrl.signup);
+router.route('/signup').post(AuthCtrl.signup);
 
-router.route('/signin').post(protect, AuthCtrl.signin);
+router.route('/signin').post(AuthCtrl.signin);
 
 router.route('/forgotpassword').post(protect, AuthCtrl.forgotpassword);
 
