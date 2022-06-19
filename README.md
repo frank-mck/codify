@@ -90,7 +90,6 @@ TASK_COLLECTION = task
 USER_COLLECTION = user
 
 JWT_SECRET = your_secret_key
-JWT_EXPIRE=choose when you want the json web key to expire.
 ```
 
 ## Install dependencies and start application
