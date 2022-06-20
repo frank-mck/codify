@@ -1,4 +1,4 @@
-import React from 'react';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import './Footer.css';
 import '../../styles/App.css'
 
@@ -12,11 +12,12 @@ export const Footer = () => {
            style={{textDecoration: 'none', color: 'rgb(177, 177, 177)'}}
            > Frank Mckenna</a>
         </p>
-        <a href='https://github.com/frank-mck/productivity-app-ts'><img 
-          style={{width: '20px', height: '20px', marginLeft: '.3rem'}}
-          src ='https://image.flaticon.com/icons/png/512/25/25657.png'
-          alt='github-repo'
-        ></img></a>
+        <a href='https://github.com/frank-mck/codify'>
+          <GitHubIcon 
+            style={{width: '20px', height: '20px', marginLeft: '.3rem'}}  
+            color='primary'      
+          />
+        </a>
       </div>
     </div>
   )
