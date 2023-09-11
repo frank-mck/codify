@@ -1,5 +1,5 @@
-const Task = require("../models/Task.js");
-const User = require("../models/User.js");
+import Task from "../models/task.js";
+import User from "../models/user.js";
 
 TaskController = {
   user: {},

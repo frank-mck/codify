@@ -1,4 +1,4 @@
-const User = require("../models/User");
+import User from "../models/user";
 const ErrorResponse = require("../utils/errorResponse");
 const bcrypt = require("bcryptjs");
 
