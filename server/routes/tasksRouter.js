@@ -14,4 +14,4 @@ router.route("/tasks/delete/:id").delete(protect, TaskCtrl.apiDeleteTask);
 
 router.route("/tasks/done/:id").put(protect, TaskCtrl.apiCompleteTask);
 
-module.exports = router;
+export default router;

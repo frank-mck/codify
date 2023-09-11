@@ -13,4 +13,4 @@ router.route("/forgotpassword").post(protect, AuthCtrl.forgotpassword);
 
 router.route("/resetpassword/:resetToken").put(protect, AuthCtrl.resetpassword);
 
-module.exports = router;
+export default router;
