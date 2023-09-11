@@ -1,8 +1,8 @@
 # Codify
 
-This is an ongoing solo project built to consolidate what I had learnt at Makers Academy, learn new technologies and to keep my skills fresh while job hunting. 
+This is an ongoing solo project built to consolidate what I had learnt at Makers Academy, learn new technologies and to keep my skills fresh while job hunting.
 
-## Description 
+## Description
 
 A productivity website that helps users organise their tasks.
 Deployed here: https://codify-tasks.netlify.app/
@@ -12,7 +12,7 @@ Deployed here: https://codify-tasks.netlify.app/
 - MongoDb
 - Express
 - React
-- Node.js 
+- Node.js
 - TypeScript
 - CircleCI
 - Heroku(backend)
@@ -37,6 +37,7 @@ When a user signs up, the password gets hashed using bcrypt and then stored in t
 Each user is verified using bcrypt. Once that's complete, a token is released and then stored in the localStorage to access private routes.
 
 ## User Stories
+
 ```
 As a user
 So i can organise my tasks
@@ -54,7 +55,7 @@ As a user
 So i can add tasks on my productivity app
 I want to sign up
 
-As a user 
+As a user
 So that only I can add tasks on my productivity app as me
 I want to log in
 
@@ -62,6 +63,7 @@ As a user
 So that i can avoid others adding tasks as me
 I want to sign out
 ```
+
 More advanced user stories coming...
 
 ## Setup .env variables
@@ -75,6 +77,7 @@ REACT_APP_SERVER = http://localhost:3002/api/v1
 ```
 
 You can create a secret key by typing the following in the terminal:
+
 ```
 node
 require('crypto').randomBytes(35).toString('hex');
@@ -82,6 +85,7 @@ require('crypto').randomBytes(35).toString('hex');
 
 Back-end:
 Cd into the server folder and create another .env file and store the following:
+
 ```
 DATABASE = 'mongodb://localhost/name-of-your-database'
 TEST_DATABASE='mongodb://localhost/name-of-your-test-database'
@@ -95,12 +99,14 @@ JWT_SECRET = your_secret_key
 ## Install dependencies and start application
 
 At the root type the following into the terminal:
+
 ```
 npm install
 npm start
 ```
 
 Then cd into server then type the following:
+
 ```
 npm install
 npm run dev

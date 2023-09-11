@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #0A1929;
-  font-family: 'Roboto', sans-serif;
+  background-color: #0a1929;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 0.4mm;
   font-size: 15px;
 }
@@ -15,33 +15,24 @@ body {
   justify-content: space-between;
   height: 100vh;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: 0;
 }
 
 @media only screen and (max-width: 668px) and (min-width: 568px) {
-  html { 
+  html {
     font-size: 14px;
   }
-
-
 }
 
-@media  only screen and (min-width: 280px) and (max-width: 368px) {
-  html { 
+@media only screen and (min-width: 280px) and (max-width: 368px) {
+  html {
     font-size: 10.7px;
   }
-
- 
-  
 }
 
-
-@media  only screen and (max-width: 568px) and (min-width: 368px) {
-  html { 
+@media only screen and (max-width: 568px) and (min-width: 368px) {
+  html {
     font-size: 12.8px;
   }
-
- 
-
 }

@@ -1,14 +1,18 @@
-import TaskDataService from '../services/TaskService';
-import React from 'react';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { useHistory } from 'react-router-dom';
-import IconButton from '@material-ui/core/IconButton';
+import TaskDataService from "../services/TaskService";
+import React from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useHistory } from "react-router-dom";
+import IconButton from "@material-ui/core/IconButton";
 
-export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAuthMesgs }) => {
-
+export const DeleteTask: React.FC<any> = ({
+  addTasks,
+  setAddTasks,
+  taskId,
+  setAuthMesgs,
+}) => {
   interface keyValuePair {
-    _id: string, 
-    task: string,
+    _id: string;
+    task: string;
   }
 
   const history = useHistory();
@@ -16,35 +20,36 @@ export const DeleteTask: React.FC<any> = ({ addTasks, setAddTasks, taskId, setAu
   const handleFadeout = () => {
     // Add a class name to the item being removed for a fade out effect
     const el: HTMLElement | any = document.getElementById(taskId);
-    el.classList.add('fade-out-task');
+    el.classList.add("fade-out-task");
 
-    setTimeout(() => { 
+    setTimeout(() => {
       // Remove class name
-      el.classList.remove('fade-out-task');
+      el.classList.remove("fade-out-task");
       const data = addTasks.filter((task: keyValuePair) => task._id !== taskId);
       setAddTasks([...data]);
     }, 300);
-  }
+  };
 
   const deleteTask = async () => {
     try {
       await TaskDataService.deleteTask(taskId);
-    } catch(err: any) {
+    } catch (err: any) {
       setAuthMesgs(err.response.data.error);
-      history.push('/');
+      history.push("/");
     }
-    
+
     handleFadeout();
-  }
+  };
 
   return (
     <IconButton aria-label="delete" onClick={() => deleteTask()}>
-      <DeleteIcon 
-      style={{color: '#ffffff4f'}}
-        className='delete-btn'
-        color="primary" 
-        >Delete
-      </DeleteIcon> 
+      <DeleteIcon
+        style={{ color: "#ffffff4f" }}
+        className="delete-btn"
+        color="primary"
+      >
+        Delete
+      </DeleteIcon>
     </IconButton>
-  )
-}
+  );
+};

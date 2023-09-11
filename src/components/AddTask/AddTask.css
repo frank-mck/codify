@@ -4,7 +4,7 @@
 
 .App {
   text-align: center;
-  color:rgb(236, 236, 236);
+  color: rgb(236, 236, 236);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -41,10 +41,13 @@
   height: 2.2rem;
   background-color: rgb(236, 236, 236);
   border-radius: 5px;
-  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.425), 1px 1px 3px 0 rgba(0, 0, 0, 0.205);
+  box-shadow:
+    1px 1px 2px 0 rgba(0, 0, 0, 0.425),
+    1px 1px 3px 0 rgba(0, 0, 0, 0.205);
 }
 
-.add-task-form-btn, .task-btn {
+.add-task-form-btn,
+.task-btn {
   margin: 0 1rem;
   color: rgb(236, 236, 236);
 }
@@ -58,21 +61,20 @@
   position: relative;
 }
 
-
 .tasks-completed::after {
-  content: '✔';
+  content: "✔";
   color: yellow;
-  margin-left: .1rem;
+  margin-left: 0.1rem;
 }
 
 .tick {
   width: 1.5rem;
   height: 1.5rem;
-  padding: .2rem;
-  margin: .2rem;
+  padding: 0.2rem;
+  margin: 0.2rem;
 }
 
-.tick-container { 
+.tick-container {
   display: flex;
   width: 2.5rem;
   height: 1.8rem;

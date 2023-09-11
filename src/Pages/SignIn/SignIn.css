@@ -1,4 +1,5 @@
-.signin-page, .signup-page {
+.signin-page,
+.signup-page {
   height: calc(100vh - 6.3rem);
   display: flex;
   align-items: center;
@@ -8,7 +9,8 @@
   padding: 1.8rem;
 }
 
-.sign-in-container, .sign-up-container {
+.sign-in-container,
+.sign-up-container {
   max-height: 30.5rem;
   width: 22rem;
   text-align: center;
@@ -19,29 +21,30 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  color:rgb(236, 236, 236);
-  box-shadow: 
+  color: rgb(236, 236, 236);
+  box-shadow:
     0px 0px 0 1px #14467c,
     2px 2px 2px rgba(0, 0, 0, 0.555),
     3px 3px 3px 3px rgba(0, 0, 0, 0.233),
     4px 4px 4px 4px rgba(0, 0, 0, 0.199),
     5px 5px 5px 4px rgba(0, 0, 0, 0.11);
-    animation: move-in .4s cubic-bezier(0.215, 0.610, 0.355, 1);
-    overflow: visible;
-    margin-bottom: 2rem;
+  animation: move-in 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+  overflow: visible;
+  margin-bottom: 2rem;
 }
 
 @keyframes move-in {
-  from { 
+  from {
     margin-left: -100px;
     opacity: 0;
-  } to { 
+  }
+  to {
     opacity: 1;
     margin-left: 0;
   }
 }
 
-.signin-headline-background { 
+.signin-headline-background {
   margin: 2rem 0 1rem 0;
   display: flex;
   justify-content: center;
@@ -49,19 +52,19 @@
   position: relative;
   z-index: 200;
   height: 4.2rem;
-  color:rgb(238, 238, 238);
+  color: rgb(238, 238, 238);
   border-top: 1px solid #14467c;
   border-bottom: 1px solid #14467c;
-  font-size: .7rem;
+  font-size: 0.7rem;
   width: 18rem;
 }
 
 .signin-headline-background::after {
-  content: '';
+  content: "";
   position: absolute;
   left: -1px;
-  top: .1rem;
-  font-size: .7rem;
+  top: 0.1rem;
+  font-size: 0.7rem;
   border-top: 1px solid #14467c;
   border-bottom: 1px solid #14467c;
   width: 18rem;
@@ -73,7 +76,6 @@
   width: 18.8rem;
   word-break: break-word;
   font-weight: 1000;
-  
 }
 
 .signin-title {
@@ -86,7 +88,8 @@
   font-size: 2.2rem;
 }
 
-.sign-in-form, .sign-up-form {
+.sign-in-form,
+.sign-up-form {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -97,38 +100,42 @@
 .signin-link-container {
   display: flex;
   width: 100%;
-  margin-top: .8rem;
+  margin-top: 0.8rem;
   justify-content: center;
   align-items: center;
 }
 
-.signup-input, .signin-input {
+.signup-input,
+.signin-input {
   border: none;
-  padding: .5rem;
+  padding: 0.5rem;
   background-color: rgb(236, 236, 236);
   border-radius: 3px;
   width: 16.3rem;
-  margin-top: .1rem;
+  margin-top: 0.1rem;
 }
 
-.signup-form label, label { 
+.signup-form label,
+label {
   display: flex;
   justify-content: flex-end;
-  margin-top: .5rem;
-  font-size: .9rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
 }
 
-.signup-link, .signin-link { 
+.signup-link,
+.signin-link {
   color: #fdfd96;
-  font-size: .7rem;
+  font-size: 0.7rem;
   text-decoration: none;
   position: relative;
   display: flex;
   justify-content: space-between;
 }
 
-.signup-link::after, .signin-link::before {
-  content: '';
+.signup-link::after,
+.signin-link::before {
+  content: "";
   position: absolute;
   bottom: -0.235rem;
   left: 0;
@@ -137,7 +144,8 @@
   height: 1px;
 }
 
-.signin-bar, .signup-bar {
+.signin-bar,
+.signup-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -146,13 +154,13 @@
 
 .signout-mesgs {
   height: 50px;
-  margin-bottom: .7rem;
-  font-size: .9rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.9rem;
 }
 
 .auth-mesgs {
   color: red;
   height: 50px;
-  margin-bottom: .7rem;
-  font-size: .9rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.9rem;
 }

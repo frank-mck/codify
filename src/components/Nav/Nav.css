@@ -6,21 +6,20 @@ nav {
   width: 100%;
 }
 
-.nav-rightside { 
+.nav-rightside {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   min-width: 11.2rem;
   padding: 0 1rem;
-  
 }
 
-.nav-logo { 
+.nav-logo {
   margin-left: 1.2rem;
   color: rgb(236, 236, 236);
 }
 
 .username {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   font-size: 1.1rem;
 }
