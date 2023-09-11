@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const AuthCtrl = require("../controllers/AuthController");
+import AuthCtrl from "../controllers/AuthController";
 const { protect } = require("../middleware/auth");
 
 router.route("/users").get(protect, AuthCtrl.getAllUsers);

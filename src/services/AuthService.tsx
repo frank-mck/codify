@@ -2,7 +2,7 @@ import http from "../utils/http";
 import verifyToken from "../utils/verifyToken";
 
 class AuthDataService {
-  url: string = "/auth";
+  url: string = "/";
 
   async createUser(user: any) {
     return await http.instance(this.url).post("/signup", user);

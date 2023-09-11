@@ -1,7 +1,7 @@
 import Task from "../models/task.js";
 import User from "../models/user.js";
 
-TaskController = {
+const TaskController = {
   user: {},
 
   apiGetTasks: async (req, res, next) => {

@@ -1,5 +1,5 @@
 const express = require("express");
-const TaskController = require("../controllers/TaskController");
+import TaskController from "../controllers/TaskController";
 const router = express.Router();
 const TaskCtrl = TaskController;
 const { protect } = require("../middleware/auth");
